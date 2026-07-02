@@ -6,7 +6,7 @@ This codebase contains vendor-independent, bare-metal C ports of NIST PQC algori
 All modules are currently in active development or planned.
 
 ### Target Algorithms
-* **FN-DSA (Falcon):** 🟡 Active development
 * **ML-KEM (Kyber):** 🟡 Active development
 * **ML-DSA (Dilithium):** 🟡 Active development
 * **SLH-DSA (Sphincs+):** 🟡 Active development
+* **FN-DSA (Falcon):** 🟡 Active development
