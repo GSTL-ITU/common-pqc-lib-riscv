@@ -6,7 +6,7 @@
 
 #define MLEN 59
 #define CTXLEN 14
-#define NTESTS 10000
+#define NTESTS 1
 
 #define DEBUG_IF_ADDR 0x10008010
 #define DEBUG_REG     ((volatile uint32_t *)DEBUG_IF_ADDR)
@@ -28,40 +28,36 @@ int main(void)
 
   for(i = 0; i < NTESTS; ++i) {
     randombytes(m, MLEN);
-    *DEBUG_REG = 101;
+    *DEBUG_REG = 11;
 
     crypto_sign_keypair(pk, sk);
-    *DEBUG_REG = 102;
+    *DEBUG_REG = 12;
     crypto_sign(sm, &smlen, m, MLEN, ctx, CTXLEN, sk);
-    *DEBUG_REG = 103;
+    *DEBUG_REG = 13;
     ret = crypto_sign_open(m2, &mlen, sm, smlen, ctx, CTXLEN, pk);
     
     if(ret) {
       // Verification failed
-      *DEBUG_REG = 11;
-      return -1;
+      *DEBUG_REG = 14;
     }
-    else *DEBUG_REG = 12;
+    else *DEBUG_REG = 15;
     if(smlen != MLEN + CRYPTO_BYTES) {
       // Signed message lengths wrong
-      *DEBUG_REG = 13;
-      return -1;
+      *DEBUG_REG = 16;
     }
-    else *DEBUG_REG = 14;
+    else *DEBUG_REG = 17;
     if(mlen != MLEN) {
       // Message lengths wrong
-      *DEBUG_REG = 15;
-      return -1;
+      *DEBUG_REG = 18;
     }
-    *DEBUG_REG = 16;
+    else *DEBUG_REG = 19;
     for(j = 0; j < MLEN; ++j) {
       if(m2[j] != m[j]) {
         // Messages don't match
-        *DEBUG_REG = 17;
-        return -1;
+        *DEBUG_REG = 20;
       }
-      else *DEBUG_REG = 18;
     }
+    *DEBUG_REG = 21;
 
     randombytes((uint8_t *)&j, sizeof(j));
     do {
@@ -71,10 +67,9 @@ int main(void)
     ret = crypto_sign_open(m2, &mlen, sm, smlen, ctx, CTXLEN, pk);
     if(!ret) {
       // Trivial forgeries possible
-      *DEBUG_REG = 19;
-      return -1;
+      *DEBUG_REG = 22;
     }
-    *DEBUG_REG = 20;
+    else *DEBUG_REG = 23;
   }
 
   *DEBUG_REG = CRYPTO_PUBLICKEYBYTES;

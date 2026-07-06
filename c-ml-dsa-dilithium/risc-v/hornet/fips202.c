@@ -505,8 +505,8 @@ static void keccak_squeezeblocks(uint8_t *out,
   unsigned int i;
 
   while(nblocks) {
-    *((volatile uint32_t *)0x10008010) = 1040;
-    *((volatile uint32_t *)0x10008010) = (int)nblocks;
+    //*((volatile uint32_t *)0x10008010) = 1040;
+    //*((volatile uint32_t *)0x10008010) = (int)nblocks;
     KeccakF1600_StatePermute(s);
     for(i=0;i<r/8;i++)
       store64(out+8*i, s[i]);
