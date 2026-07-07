@@ -8,12 +8,36 @@ For a RISC-V build, you need the [RISC-V GNU Compiler Toolchain](https://github.
 
 For Hornet:
 ```sh
+make riscv_dilithium2
+```
+or if you are using the multilib version of the gnu toolchain:
+```sh
+make riscv_dilithium2_multilib
+```
+where the number after dilithium ranges over the parameter set 2, 3 and 5.
+
+If you want more detailed testing, you can use
+```sh
 make riscv_test_dilithium2
 ```
-Or if you are using the multilib version of the gnu toolchain:
+or similarly for the multilib version
 ```sh
 make riscv_test_dilithium2_multilib
 ```
+Running this test will print out execution flow as well as key and signature sizes to the debug address. However, modifying the Hornet debug interface ```debug_interface_wb.v``` is required.
+
+### Execution Report
+
+Below values are for Hornet core running with 40 MHz clock frequency and Dilithium2 parameter set.
+| Operation | Time | Clock Cycles |
+| :--- | :--- | :--- |
+| **Keypair Generation** | 86,098,650 ns | 3,443,946 |
+| **Crypto Sign** | 1,051,490,400 ns | 42,059,616 |
+| **Crypto Sign Open** | 94,446,450 ns | 3,777,858 |
+
+**Public Key Size:** 1312 bytes \
+**Secret Key Size:** 2560 bytes \
+**Signature Size:** 2420 bytes 
 
 ## Repository Structure
 
@@ -26,6 +50,8 @@ make riscv_test_dilithium2_multilib
     └── hornet      # Modified Dilithium source code and related files for Hornet
 ```
 
-## Notes
+### Notes
 
 The random number generation has been changed with a seeded pseudo rng.
+
+"Time" and "Clock Cycles" values in the execution report are not exact, as the debug prints and if checks alter the cycle counts slightly.
