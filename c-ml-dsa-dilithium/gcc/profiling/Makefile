@@ -21,7 +21,7 @@ AVX2_KECCAK_SOURCES = $(AVX2_SOURCES) ../avx2/fips202.c ../avx2/fips202x4.c ../a
 AVX2_KECCAK_HEADERS = $(AVX2_HEADERS) ../avx2/fips202.h ../avx2/fips202x4.h
 
 
-.PHONY: ref_all avx2_all clean
+.PHONY: profile clean
 
 profile:
 	$(MAKE) ref_test_dilithium2
@@ -66,11 +66,6 @@ ref_test_dilithium5: ../ref/test/test_dilithium.c ../ref/randombytes.c $(REF_KEC
 	  -o $@ $< ../ref/randombytes.c $(REF_KECCAK_SOURCES)
 
 
-avx2_all: \
-  avx2_test_dilithium2 \
-  avx2_test_dilithium3 \
-  avx2_test_dilithium5
-
 avx2_test_dilithium2: ../avx2/test/test_dilithium.c ../avx2/randombytes.c $(AVX2_KECCAK_SOURCES) \
   $(AVX2_KECCAK_HEADERS)
 	$(CC) $(AVX2_CFLAGS) -DDILITHIUM_MODE=2 \
@@ -88,7 +83,6 @@ avx2_test_dilithium5: ../avx2/test/test_dilithium.c ../avx2/randombytes.c $(AVX2
 
 
 clean:
-	rm -f *~ test/*~ *.gcno *.gcda *.lcov *.out
 	rm -f ref_test_dilithium2
 	rm -f ref_test_dilithium3
 	rm -f ref_test_dilithium5

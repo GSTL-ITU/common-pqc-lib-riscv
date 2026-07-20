@@ -1,0 +1,530 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 50.00      0.06     0.06   127115     0.47     0.47  pqcrystals_kyber_fips202x4_avx2_KeccakP1600times4_PermuteAll_24rounds
+ 16.67      0.08     0.02   144000     0.14     0.14  pqcrystals_kyber1024_avx2_rej_uniform_avx
+ 16.67      0.10     0.02                             pqcrystals_kyber1024_avx2_ntt_avx
+  8.33      0.11     0.01    69000     0.14     0.14  KeccakF1600_StatePermute
+  8.33      0.12     0.01     6000     1.67     1.67  pqcrystals_kyber1024_avx2_polyvec_compress
+  0.00      0.12     0.00   183000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_add
+  0.00      0.12     0.00   180000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_basemul_montgomery
+  0.00      0.12     0.00   144000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_nttunpack
+  0.00      0.12     0.00    78000     0.00     0.00  cbd2
+  0.00      0.12     0.00    72000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_cbd_eta1
+  0.00      0.12     0.00    63000     0.00     0.02  pqcrystals_kyber_fips202_avx2_sha3_512
+  0.00      0.12     0.00    60000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_ntt
+  0.00      0.12     0.00    57000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_reduce
+  0.00      0.12     0.00    45000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery
+  0.00      0.12     0.00    37115     0.00     1.39  pqcrystals_kyber_fips202x4_avx2_shake128x4_squeezeblocks
+  0.00      0.12     0.00    36000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_frombytes
+  0.00      0.12     0.00    36000     0.00     0.00  pqcrystals_kyber_fips202x4_avx2_shake128x4_absorb_once
+  0.00      0.12     0.00    33000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_invntt_tomont
+  0.00      0.12     0.00    24000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_tobytes
+  0.00      0.12     0.00    18000     0.00     0.49  pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x
+  0.00      0.12     0.00    18000     0.00     0.00  pqcrystals_kyber_fips202x4_avx2_shake256x4_absorb_once
+  0.00      0.12     0.00    18000     0.00     0.47  pqcrystals_kyber_fips202x4_avx2_shake256x4_squeezeblocks
+  0.00      0.12     0.00    15000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_ntt
+  0.00      0.12     0.00    12000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_tomont
+  0.00      0.12     0.00    12000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_reduce
+  0.00      0.12     0.00     9002     0.00     0.00  randombytes
+  0.00      0.12     0.00     9000     0.00     8.03  pqcrystals_kyber1024_avx2_gen_matrix
+  0.00      0.12     0.00     9000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_add
+  0.00      0.12     0.00     9000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_frombytes
+  0.00      0.12     0.00     6000     0.00    10.97  pqcrystals_kyber1024_avx2_indcpa_enc
+  0.00      0.12     0.00     6000     0.00     0.29  pqcrystals_kyber1024_avx2_kyber_shake256_prf
+  0.00      0.12     0.00     6000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_cbd_eta2
+  0.00      0.12     0.00     6000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_compress
+  0.00      0.12     0.00     6000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_frommsg
+  0.00      0.12     0.00     6000     0.00     0.29  pqcrystals_kyber1024_avx2_poly_getnoise_eta2
+  0.00      0.12     0.00     6000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_invntt_tomont
+  0.00      0.12     0.00     6000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_tobytes
+  0.00      0.12     0.00     6000     0.00     0.29  pqcrystals_kyber_fips202_avx2_sha3_256
+  0.00      0.12     0.00     6000     0.00     0.29  pqcrystals_kyber_fips202_avx2_shake256
+  0.00      0.12     0.00     6000     0.00     0.80  pqcrystals_kyber_fips202_avx2_shake256_absorb
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber1024_avx2_cmov
+  0.00      0.12     0.00     3000     0.00    12.73  pqcrystals_kyber1024_avx2_dec
+  0.00      0.12     0.00     3000     0.00    11.28  pqcrystals_kyber1024_avx2_enc
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber1024_avx2_indcpa_dec
+  0.00      0.12     0.00     3000     0.00     9.03  pqcrystals_kyber1024_avx2_indcpa_keypair_derand
+  0.00      0.12     0.00     3000     0.00     9.32  pqcrystals_kyber1024_avx2_keypair
+  0.00      0.12     0.00     3000     0.00     1.74  pqcrystals_kyber1024_avx2_kyber_shake256_rkprf
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_decompress
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_sub
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber1024_avx2_poly_tomsg
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber1024_avx2_polyvec_decompress
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber1024_avx2_verify
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber_fips202_avx2_shake256_finalize
+  0.00      0.12     0.00     3000     0.00     0.00  pqcrystals_kyber_fips202_avx2_shake256_init
+  0.00      0.12     0.00     3000     0.00     0.14  pqcrystals_kyber_fips202_avx2_shake256_squeeze
+  0.00      0.12     0.00     1000     0.00    33.33  test_invalid_ciphertext
+  0.00      0.12     0.00     1000     0.00    33.33  test_invalid_sk_a
+  0.00      0.12     0.00     1000     0.00    33.33  test_keys
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 8.33% of 0.12 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     83.3    0.00    0.10                 main [1]
+                0.00    0.03    1000/1000        test_keys [10]
+                0.00    0.03    1000/1000        test_invalid_ciphertext [8]
+                0.00    0.03    1000/1000        test_invalid_sk_a [9]
+-----------------------------------------------
+                0.00    0.02    3000/9000        pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.05    6000/9000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[2]     60.2    0.00    0.07    9000         pqcrystals_kyber1024_avx2_gen_matrix [2]
+                0.00    0.05   37115/37115       pqcrystals_kyber_fips202x4_avx2_shake128x4_squeezeblocks [5]
+                0.02    0.00  144000/144000      pqcrystals_kyber1024_avx2_rej_uniform_avx [13]
+                0.00    0.00   36000/63000       pqcrystals_kyber_fips202_avx2_sha3_512 [25]
+                0.00    0.00  144000/144000      pqcrystals_kyber1024_avx2_poly_nttunpack [29]
+                0.00    0.00   36000/36000       pqcrystals_kyber_fips202x4_avx2_shake128x4_absorb_once [36]
+-----------------------------------------------
+                0.00    0.03    3000/6000        pqcrystals_kyber1024_avx2_enc [7]
+                0.00    0.03    3000/6000        pqcrystals_kyber1024_avx2_dec [6]
+[3]     54.8    0.00    0.07    6000         pqcrystals_kyber1024_avx2_indcpa_enc [3]
+                0.00    0.05    6000/9000        pqcrystals_kyber1024_avx2_gen_matrix [2]
+                0.01    0.00    6000/6000        pqcrystals_kyber1024_avx2_polyvec_compress [16]
+                0.00    0.01   12000/18000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_poly_getnoise_eta2 [22]
+                0.00    0.00   30000/45000       pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery [34]
+                0.00    0.00   12000/33000       pqcrystals_kyber1024_avx2_poly_invntt_tomont [37]
+                0.00    0.00   12000/183000      pqcrystals_kyber1024_avx2_poly_add [27]
+                0.00    0.00   12000/57000       pqcrystals_kyber1024_avx2_poly_reduce [33]
+                0.00    0.00    6000/9000        pqcrystals_kyber1024_avx2_polyvec_frombytes [45]
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_poly_frommsg [48]
+                0.00    0.00    6000/60000       pqcrystals_kyber1024_avx2_poly_ntt [32]
+                0.00    0.00    6000/15000       pqcrystals_kyber1024_avx2_polyvec_ntt [40]
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_polyvec_invntt_tomont [49]
+                0.00    0.00    6000/9000        pqcrystals_kyber1024_avx2_polyvec_add [44]
+                0.00    0.00    6000/12000       pqcrystals_kyber1024_avx2_polyvec_reduce [42]
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_poly_compress [47]
+-----------------------------------------------
+                0.01    0.00   18000/127115      pqcrystals_kyber_fips202x4_avx2_shake256x4_squeezeblocks [18]
+                0.05    0.00  109115/127115      pqcrystals_kyber_fips202x4_avx2_shake128x4_squeezeblocks [5]
+[4]     50.0    0.06    0.00  127115         pqcrystals_kyber_fips202x4_avx2_KeccakP1600times4_PermuteAll_24rounds [4]
+-----------------------------------------------
+                0.00    0.05   37115/37115       pqcrystals_kyber1024_avx2_gen_matrix [2]
+[5]     42.9    0.00    0.05   37115         pqcrystals_kyber_fips202x4_avx2_shake128x4_squeezeblocks [5]
+                0.05    0.00  109115/127115      pqcrystals_kyber_fips202x4_avx2_KeccakP1600times4_PermuteAll_24rounds [4]
+-----------------------------------------------
+                0.00    0.01    1000/3000        test_keys [10]
+                0.00    0.01    1000/3000        test_invalid_sk_a [9]
+                0.00    0.01    1000/3000        test_invalid_ciphertext [8]
+[6]     31.8    0.00    0.04    3000         pqcrystals_kyber1024_avx2_dec [6]
+                0.00    0.03    3000/6000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+                0.00    0.01    3000/3000        pqcrystals_kyber1024_avx2_kyber_shake256_rkprf [19]
+                0.00    0.00    3000/63000       pqcrystals_kyber_fips202_avx2_sha3_512 [25]
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_verify [57]
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_cmov [51]
+-----------------------------------------------
+                0.00    0.01    1000/3000        test_keys [10]
+                0.00    0.01    1000/3000        test_invalid_sk_a [9]
+                0.00    0.01    1000/3000        test_invalid_ciphertext [8]
+[7]     28.2    0.00    0.03    3000         pqcrystals_kyber1024_avx2_enc [7]
+                0.00    0.03    3000/6000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+                0.00    0.00    3000/6000        pqcrystals_kyber_fips202_avx2_sha3_256 [23]
+                0.00    0.00    3000/63000       pqcrystals_kyber_fips202_avx2_sha3_512 [25]
+                0.00    0.00    3000/9002        randombytes [43]
+-----------------------------------------------
+                0.00    0.03    1000/1000        main [1]
+[8]     27.8    0.00    0.03    1000         test_invalid_ciphertext [8]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_dec [6]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_enc [7]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_keypair [11]
+                0.00    0.00    2002/9002        randombytes [43]
+-----------------------------------------------
+                0.00    0.03    1000/1000        main [1]
+[9]     27.8    0.00    0.03    1000         test_invalid_sk_a [9]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_dec [6]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_enc [7]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_keypair [11]
+                0.00    0.00    1000/9002        randombytes [43]
+-----------------------------------------------
+                0.00    0.03    1000/1000        main [1]
+[10]    27.8    0.00    0.03    1000         test_keys [10]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_dec [6]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_enc [7]
+                0.00    0.01    1000/3000        pqcrystals_kyber1024_avx2_keypair [11]
+-----------------------------------------------
+                0.00    0.01    1000/3000        test_keys [10]
+                0.00    0.01    1000/3000        test_invalid_sk_a [9]
+                0.00    0.01    1000/3000        test_invalid_ciphertext [8]
+[11]    23.3    0.00    0.03    3000         pqcrystals_kyber1024_avx2_keypair [11]
+                0.00    0.03    3000/3000        pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00    3000/6000        pqcrystals_kyber_fips202_avx2_sha3_256 [23]
+                0.00    0.00    3000/9002        randombytes [43]
+-----------------------------------------------
+                0.00    0.03    3000/3000        pqcrystals_kyber1024_avx2_keypair [11]
+[12]    22.6    0.00    0.03    3000         pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.02    3000/9000        pqcrystals_kyber1024_avx2_gen_matrix [2]
+                0.00    0.00    6000/18000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+                0.00    0.00    3000/63000       pqcrystals_kyber_fips202_avx2_sha3_512 [25]
+                0.00    0.00   12000/12000       pqcrystals_kyber1024_avx2_poly_tomont [41]
+                0.00    0.00   12000/45000       pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery [34]
+                0.00    0.00    6000/60000       pqcrystals_kyber1024_avx2_poly_ntt [32]
+                0.00    0.00    6000/15000       pqcrystals_kyber1024_avx2_polyvec_ntt [40]
+                0.00    0.00    6000/57000       pqcrystals_kyber1024_avx2_poly_reduce [33]
+                0.00    0.00    6000/12000       pqcrystals_kyber1024_avx2_polyvec_reduce [42]
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_polyvec_tobytes [50]
+                0.00    0.00    3000/9000        pqcrystals_kyber1024_avx2_polyvec_add [44]
+-----------------------------------------------
+                0.02    0.00  144000/144000      pqcrystals_kyber1024_avx2_gen_matrix [2]
+[13]    16.7    0.02    0.00  144000         pqcrystals_kyber1024_avx2_rej_uniform_avx [13]
+-----------------------------------------------
+                                                 <spontaneous>
+[14]    16.7    0.02    0.00                 pqcrystals_kyber1024_avx2_ntt_avx [14]
+-----------------------------------------------
+                               66000             KeccakF1600_StatePermute [15]
+                0.00    0.00    3000/69000       pqcrystals_kyber_fips202_avx2_shake256_squeeze [26]
+                0.00    0.00    9000/69000       pqcrystals_kyber_fips202_avx2_sha3_512 [25]
+                0.00    0.00   12000/69000       pqcrystals_kyber_fips202_avx2_shake256 [24]
+                0.00    0.00   12000/69000       pqcrystals_kyber_fips202_avx2_sha3_256 [23]
+                0.00    0.00   33000/69000       pqcrystals_kyber_fips202_avx2_shake256_absorb [20]
+[15]     8.3    0.01    0.00   69000+66000   KeccakF1600_StatePermute [15]
+                               66000             KeccakF1600_StatePermute [15]
+-----------------------------------------------
+                0.01    0.00    6000/6000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[16]     8.3    0.01    0.00    6000         pqcrystals_kyber1024_avx2_polyvec_compress [16]
+-----------------------------------------------
+                0.00    0.00    6000/18000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.01   12000/18000       pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[17]     7.4    0.00    0.01   18000         pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+                0.00    0.01   18000/18000       pqcrystals_kyber_fips202x4_avx2_shake256x4_squeezeblocks [18]
+                0.00    0.00   18000/63000       pqcrystals_kyber_fips202_avx2_sha3_512 [25]
+                0.00    0.00   72000/78000       cbd2 [30]
+                0.00    0.00   72000/72000       pqcrystals_kyber1024_avx2_poly_cbd_eta1 [31]
+                0.00    0.00   18000/18000       pqcrystals_kyber_fips202x4_avx2_shake256x4_absorb_once [39]
+-----------------------------------------------
+                0.00    0.01   18000/18000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+[18]     7.1    0.00    0.01   18000         pqcrystals_kyber_fips202x4_avx2_shake256x4_squeezeblocks [18]
+                0.01    0.00   18000/127115      pqcrystals_kyber_fips202x4_avx2_KeccakP1600times4_PermuteAll_24rounds [4]
+-----------------------------------------------
+                0.00    0.01    3000/3000        pqcrystals_kyber1024_avx2_dec [6]
+[19]     4.3    0.00    0.01    3000         pqcrystals_kyber1024_avx2_kyber_shake256_rkprf [19]
+                0.00    0.00    6000/6000        pqcrystals_kyber_fips202_avx2_shake256_absorb [20]
+                0.00    0.00    3000/3000        pqcrystals_kyber_fips202_avx2_shake256_squeeze [26]
+                0.00    0.00    3000/3000        pqcrystals_kyber_fips202_avx2_shake256_init [59]
+                0.00    0.00    3000/3000        pqcrystals_kyber_fips202_avx2_shake256_finalize [58]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_kyber_shake256_rkprf [19]
+[20]     4.0    0.00    0.00    6000         pqcrystals_kyber_fips202_avx2_shake256_absorb [20]
+                0.00    0.00   33000/69000       KeccakF1600_StatePermute [15]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_poly_getnoise_eta2 [22]
+[21]     1.4    0.00    0.00    6000         pqcrystals_kyber1024_avx2_kyber_shake256_prf [21]
+                0.00    0.00    6000/6000        pqcrystals_kyber_fips202_avx2_shake256 [24]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[22]     1.4    0.00    0.00    6000         pqcrystals_kyber1024_avx2_poly_getnoise_eta2 [22]
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_kyber_shake256_prf [21]
+                0.00    0.00    6000/78000       cbd2 [30]
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_poly_cbd_eta2 [46]
+-----------------------------------------------
+                0.00    0.00    3000/6000        pqcrystals_kyber1024_avx2_keypair [11]
+                0.00    0.00    3000/6000        pqcrystals_kyber1024_avx2_enc [7]
+[23]     1.4    0.00    0.00    6000         pqcrystals_kyber_fips202_avx2_sha3_256 [23]
+                0.00    0.00   12000/69000       KeccakF1600_StatePermute [15]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_kyber_shake256_prf [21]
+[24]     1.4    0.00    0.00    6000         pqcrystals_kyber_fips202_avx2_shake256 [24]
+                0.00    0.00   12000/69000       KeccakF1600_StatePermute [15]
+-----------------------------------------------
+                0.00    0.00    3000/63000       pqcrystals_kyber1024_avx2_enc [7]
+                0.00    0.00    3000/63000       pqcrystals_kyber1024_avx2_dec [6]
+                0.00    0.00    3000/63000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00   18000/63000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+                0.00    0.00   36000/63000       pqcrystals_kyber1024_avx2_gen_matrix [2]
+[25]     1.1    0.00    0.00   63000         pqcrystals_kyber_fips202_avx2_sha3_512 [25]
+                0.00    0.00    9000/69000       KeccakF1600_StatePermute [15]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_kyber_shake256_rkprf [19]
+[26]     0.4    0.00    0.00    3000         pqcrystals_kyber_fips202_avx2_shake256_squeeze [26]
+                0.00    0.00    3000/69000       KeccakF1600_StatePermute [15]
+-----------------------------------------------
+                0.00    0.00   12000/183000      pqcrystals_kyber1024_avx2_indcpa_enc [3]
+                0.00    0.00   36000/183000      pqcrystals_kyber1024_avx2_polyvec_add [44]
+                0.00    0.00  135000/183000      pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery [34]
+[27]     0.0    0.00    0.00  183000         pqcrystals_kyber1024_avx2_poly_add [27]
+-----------------------------------------------
+                0.00    0.00  180000/180000      pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery [34]
+[28]     0.0    0.00    0.00  180000         pqcrystals_kyber1024_avx2_poly_basemul_montgomery [28]
+-----------------------------------------------
+                0.00    0.00  144000/144000      pqcrystals_kyber1024_avx2_gen_matrix [2]
+[29]     0.0    0.00    0.00  144000         pqcrystals_kyber1024_avx2_poly_nttunpack [29]
+-----------------------------------------------
+                0.00    0.00    6000/78000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2 [22]
+                0.00    0.00   72000/78000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+[30]     0.0    0.00    0.00   78000         cbd2 [30]
+-----------------------------------------------
+                0.00    0.00   72000/72000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+[31]     0.0    0.00    0.00   72000         pqcrystals_kyber1024_avx2_poly_cbd_eta1 [31]
+-----------------------------------------------
+                0.00    0.00    3000/60000       pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00    6000/60000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00    6000/60000       pqcrystals_kyber1024_avx2_indcpa_enc [3]
+                0.00    0.00   45000/60000       pqcrystals_kyber1024_avx2_polyvec_ntt [40]
+[32]     0.0    0.00    0.00   60000         pqcrystals_kyber1024_avx2_poly_ntt [32]
+-----------------------------------------------
+                0.00    0.00    3000/57000       pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00    6000/57000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00   12000/57000       pqcrystals_kyber1024_avx2_indcpa_enc [3]
+                0.00    0.00   36000/57000       pqcrystals_kyber1024_avx2_polyvec_reduce [42]
+[33]     0.0    0.00    0.00   57000         pqcrystals_kyber1024_avx2_poly_reduce [33]
+-----------------------------------------------
+                0.00    0.00    3000/45000       pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00   12000/45000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00   30000/45000       pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[34]     0.0    0.00    0.00   45000         pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery [34]
+                0.00    0.00  180000/180000      pqcrystals_kyber1024_avx2_poly_basemul_montgomery [28]
+                0.00    0.00  135000/183000      pqcrystals_kyber1024_avx2_poly_add [27]
+-----------------------------------------------
+                0.00    0.00   36000/36000       pqcrystals_kyber1024_avx2_polyvec_frombytes [45]
+[35]     0.0    0.00    0.00   36000         pqcrystals_kyber1024_avx2_poly_frombytes [35]
+-----------------------------------------------
+                0.00    0.00   36000/36000       pqcrystals_kyber1024_avx2_gen_matrix [2]
+[36]     0.0    0.00    0.00   36000         pqcrystals_kyber_fips202x4_avx2_shake128x4_absorb_once [36]
+-----------------------------------------------
+                0.00    0.00    3000/33000       pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00   12000/33000       pqcrystals_kyber1024_avx2_indcpa_enc [3]
+                0.00    0.00   18000/33000       pqcrystals_kyber1024_avx2_polyvec_invntt_tomont [49]
+[37]     0.0    0.00    0.00   33000         pqcrystals_kyber1024_avx2_poly_invntt_tomont [37]
+-----------------------------------------------
+                0.00    0.00   24000/24000       pqcrystals_kyber1024_avx2_polyvec_tobytes [50]
+[38]     0.0    0.00    0.00   24000         pqcrystals_kyber1024_avx2_poly_tobytes [38]
+-----------------------------------------------
+                0.00    0.00   18000/18000       pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [17]
+[39]     0.0    0.00    0.00   18000         pqcrystals_kyber_fips202x4_avx2_shake256x4_absorb_once [39]
+-----------------------------------------------
+                0.00    0.00    3000/15000       pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00    6000/15000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00    6000/15000       pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[40]     0.0    0.00    0.00   15000         pqcrystals_kyber1024_avx2_polyvec_ntt [40]
+                0.00    0.00   45000/60000       pqcrystals_kyber1024_avx2_poly_ntt [32]
+-----------------------------------------------
+                0.00    0.00   12000/12000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+[41]     0.0    0.00    0.00   12000         pqcrystals_kyber1024_avx2_poly_tomont [41]
+-----------------------------------------------
+                0.00    0.00    6000/12000       pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00    6000/12000       pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[42]     0.0    0.00    0.00   12000         pqcrystals_kyber1024_avx2_polyvec_reduce [42]
+                0.00    0.00   36000/57000       pqcrystals_kyber1024_avx2_poly_reduce [33]
+-----------------------------------------------
+                0.00    0.00    1000/9002        test_invalid_sk_a [9]
+                0.00    0.00    2002/9002        test_invalid_ciphertext [8]
+                0.00    0.00    3000/9002        pqcrystals_kyber1024_avx2_keypair [11]
+                0.00    0.00    3000/9002        pqcrystals_kyber1024_avx2_enc [7]
+[43]     0.0    0.00    0.00    9002         randombytes [43]
+-----------------------------------------------
+                0.00    0.00    3000/9000        pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+                0.00    0.00    6000/9000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[44]     0.0    0.00    0.00    9000         pqcrystals_kyber1024_avx2_polyvec_add [44]
+                0.00    0.00   36000/183000      pqcrystals_kyber1024_avx2_poly_add [27]
+-----------------------------------------------
+                0.00    0.00    3000/9000        pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00    6000/9000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[45]     0.0    0.00    0.00    9000         pqcrystals_kyber1024_avx2_polyvec_frombytes [45]
+                0.00    0.00   36000/36000       pqcrystals_kyber1024_avx2_poly_frombytes [35]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_poly_getnoise_eta2 [22]
+[46]     0.0    0.00    0.00    6000         pqcrystals_kyber1024_avx2_poly_cbd_eta2 [46]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[47]     0.0    0.00    0.00    6000         pqcrystals_kyber1024_avx2_poly_compress [47]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[48]     0.0    0.00    0.00    6000         pqcrystals_kyber1024_avx2_poly_frommsg [48]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_indcpa_enc [3]
+[49]     0.0    0.00    0.00    6000         pqcrystals_kyber1024_avx2_polyvec_invntt_tomont [49]
+                0.00    0.00   18000/33000       pqcrystals_kyber1024_avx2_poly_invntt_tomont [37]
+-----------------------------------------------
+                0.00    0.00    6000/6000        pqcrystals_kyber1024_avx2_indcpa_keypair_derand [12]
+[50]     0.0    0.00    0.00    6000         pqcrystals_kyber1024_avx2_polyvec_tobytes [50]
+                0.00    0.00   24000/24000       pqcrystals_kyber1024_avx2_poly_tobytes [38]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_dec [6]
+[51]     0.0    0.00    0.00    3000         pqcrystals_kyber1024_avx2_cmov [51]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_dec [6]
+[52]     0.0    0.00    0.00    3000         pqcrystals_kyber1024_avx2_indcpa_dec [52]
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_polyvec_decompress [56]
+                0.00    0.00    3000/9000        pqcrystals_kyber1024_avx2_polyvec_frombytes [45]
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_poly_decompress [53]
+                0.00    0.00    3000/60000       pqcrystals_kyber1024_avx2_poly_ntt [32]
+                0.00    0.00    3000/15000       pqcrystals_kyber1024_avx2_polyvec_ntt [40]
+                0.00    0.00    3000/33000       pqcrystals_kyber1024_avx2_poly_invntt_tomont [37]
+                0.00    0.00    3000/45000       pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery [34]
+                0.00    0.00    3000/57000       pqcrystals_kyber1024_avx2_poly_reduce [33]
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_poly_sub [54]
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_poly_tomsg [55]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_indcpa_dec [52]
+[53]     0.0    0.00    0.00    3000         pqcrystals_kyber1024_avx2_poly_decompress [53]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_indcpa_dec [52]
+[54]     0.0    0.00    0.00    3000         pqcrystals_kyber1024_avx2_poly_sub [54]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_indcpa_dec [52]
+[55]     0.0    0.00    0.00    3000         pqcrystals_kyber1024_avx2_poly_tomsg [55]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_indcpa_dec [52]
+[56]     0.0    0.00    0.00    3000         pqcrystals_kyber1024_avx2_polyvec_decompress [56]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_dec [6]
+[57]     0.0    0.00    0.00    3000         pqcrystals_kyber1024_avx2_verify [57]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_kyber_shake256_rkprf [19]
+[58]     0.0    0.00    0.00    3000         pqcrystals_kyber_fips202_avx2_shake256_finalize [58]
+-----------------------------------------------
+                0.00    0.00    3000/3000        pqcrystals_kyber1024_avx2_kyber_shake256_rkprf [19]
+[59]     0.0    0.00    0.00    3000         pqcrystals_kyber_fips202_avx2_shake256_init [59]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [15] KeccakF1600_StatePermute (fips202.c) [48] pqcrystals_kyber1024_avx2_poly_frommsg [13] pqcrystals_kyber1024_avx2_rej_uniform_avx
+  [30] cbd2 (cbd.c)           [22] pqcrystals_kyber1024_avx2_poly_getnoise_eta2 [57] pqcrystals_kyber1024_avx2_verify
+  [51] pqcrystals_kyber1024_avx2_cmov [17] pqcrystals_kyber1024_avx2_poly_getnoise_eta2_4x [23] pqcrystals_kyber_fips202_avx2_sha3_256
+   [6] pqcrystals_kyber1024_avx2_dec [37] pqcrystals_kyber1024_avx2_poly_invntt_tomont [25] pqcrystals_kyber_fips202_avx2_sha3_512
+   [7] pqcrystals_kyber1024_avx2_enc [32] pqcrystals_kyber1024_avx2_poly_ntt [24] pqcrystals_kyber_fips202_avx2_shake256
+   [2] pqcrystals_kyber1024_avx2_gen_matrix [29] pqcrystals_kyber1024_avx2_poly_nttunpack [20] pqcrystals_kyber_fips202_avx2_shake256_absorb
+  [52] pqcrystals_kyber1024_avx2_indcpa_dec [33] pqcrystals_kyber1024_avx2_poly_reduce [58] pqcrystals_kyber_fips202_avx2_shake256_finalize
+   [3] pqcrystals_kyber1024_avx2_indcpa_enc [54] pqcrystals_kyber1024_avx2_poly_sub [59] pqcrystals_kyber_fips202_avx2_shake256_init
+  [12] pqcrystals_kyber1024_avx2_indcpa_keypair_derand [38] pqcrystals_kyber1024_avx2_poly_tobytes [26] pqcrystals_kyber_fips202_avx2_shake256_squeeze
+  [11] pqcrystals_kyber1024_avx2_keypair [41] pqcrystals_kyber1024_avx2_poly_tomont [4] pqcrystals_kyber_fips202x4_avx2_KeccakP1600times4_PermuteAll_24rounds
+  [21] pqcrystals_kyber1024_avx2_kyber_shake256_prf [55] pqcrystals_kyber1024_avx2_poly_tomsg [36] pqcrystals_kyber_fips202x4_avx2_shake128x4_absorb_once
+  [19] pqcrystals_kyber1024_avx2_kyber_shake256_rkprf [44] pqcrystals_kyber1024_avx2_polyvec_add [5] pqcrystals_kyber_fips202x4_avx2_shake128x4_squeezeblocks
+  [14] pqcrystals_kyber1024_avx2_ntt_avx [34] pqcrystals_kyber1024_avx2_polyvec_basemul_acc_montgomery [39] pqcrystals_kyber_fips202x4_avx2_shake256x4_absorb_once
+  [27] pqcrystals_kyber1024_avx2_poly_add [16] pqcrystals_kyber1024_avx2_polyvec_compress [18] pqcrystals_kyber_fips202x4_avx2_shake256x4_squeezeblocks
+  [28] pqcrystals_kyber1024_avx2_poly_basemul_montgomery [56] pqcrystals_kyber1024_avx2_polyvec_decompress [43] randombytes
+  [31] pqcrystals_kyber1024_avx2_poly_cbd_eta1 [45] pqcrystals_kyber1024_avx2_polyvec_frombytes [8] test_invalid_ciphertext (test_kyber.c)
+  [46] pqcrystals_kyber1024_avx2_poly_cbd_eta2 [49] pqcrystals_kyber1024_avx2_polyvec_invntt_tomont [9] test_invalid_sk_a (test_kyber.c)
+  [47] pqcrystals_kyber1024_avx2_poly_compress [40] pqcrystals_kyber1024_avx2_polyvec_ntt [10] test_keys (test_kyber.c)
+  [53] pqcrystals_kyber1024_avx2_poly_decompress [42] pqcrystals_kyber1024_avx2_polyvec_reduce
+  [35] pqcrystals_kyber1024_avx2_poly_frombytes [50] pqcrystals_kyber1024_avx2_polyvec_tobytes

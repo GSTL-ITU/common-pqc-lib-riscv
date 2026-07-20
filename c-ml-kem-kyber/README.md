@@ -22,6 +22,7 @@ The codebase has been heavily modified to support deterministic testing in a bar
 .
 ├── avx2/             # Native x86 AVX2 implementation (Ignored for FPGA)
 ├── ref/              # Standard C reference implementation
+├── profiling/        # Profiling tests
 └── riscv-hornet/     # Modified bare-metal implementation for Hornet core
     ├── test/         
     │   ├── hornet_kyber.c      # Main test harness (Keygen, Encapsulation, Decapsulation)
@@ -53,3 +54,11 @@ $$\text{Clock Cycles} = \frac{\text{Total Simulation Time (ns)}}{25 \text{ ns}}$
 * **End Time:** 435,572,038 ns
 * **Total Execution Time:** 435,571,450 ns
 * **Total Clock Cycles:** 17,422,858 cycles
+
+## Profiling
+
+There is a Makefile script included for profiling Dilithium using [Gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html).
+Running below command will make detailed profiling reports for reference and AVX2 implementations (all parameters included):
+```sh
+make profile
+```
