@@ -88,7 +88,7 @@ avx2_test_dilithium5: ../avx2/test/test_dilithium.c ../avx2/randombytes.c $(AVX2
 
 
 clean:
-	rm -f *~ test/*~ *.gcno *.gcda *.lcov *.out *.txt
+	rm -f *~ test/*~ *.gcno *.gcda *.lcov *.out
 	rm -f ref_test_dilithium2
 	rm -f ref_test_dilithium3
 	rm -f ref_test_dilithium5
