@@ -1,0 +1,666 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 43.68      0.83     0.83                             looptop
+ 17.37      1.16     0.33   969215     0.34     0.34  KeccakF1600_StatePermute
+ 13.16      1.41     0.25                             pqcrystals_dilithium3_avx2_invntt_avx
+ 10.53      1.61     0.20                             pqcrystals_dilithium3_avx2_ntt_avx
+  3.16      1.67     0.06                             _looptop2
+  2.63      1.72     0.05   433646     0.12     0.47  pqcrystals_dilithium_fips202_avx2_shake256_absorb
+  1.58      1.75     0.03    50000     0.60     0.60  pqcrystals_dilithium3_avx2_polyz_pack
+  1.58      1.78     0.03                             _looptop1
+  1.05      1.80     0.02  1278748     0.02     0.02  pqcrystals_dilithium3_avx2_rej_uniform_avx
+  1.05      1.82     0.02   304728     0.07     0.07  pqcrystals_dilithium3_avx2_decompose_avx
+  1.05      1.84     0.02    70788     0.28     1.66  pqcrystals_dilithium3_avx2_poly_challenge
+  0.53      1.85     0.01   119753     0.08     0.08  pqcrystals_dilithium3_avx2_polyt1_unpack
+  0.53      1.86     0.01   119660     0.08     0.08  pqcrystals_dilithium3_avx2_use_hint_avx
+  0.53      1.87     0.01   110641     0.09     0.43  pqcrystals_dilithium_fips202_avx2_shake256_squeeze
+  0.53      1.88     0.01   110000     0.09     0.09  pqcrystals_dilithium3_avx2_polyeta_pack
+  0.53      1.89     0.01    20000     0.50     7.55  pqcrystals_dilithium3_avx2_verify_internal
+  0.53      1.90     0.01                             nttunpack128_avx
+  0.00      1.90     0.00  1198920     0.00     0.00  pqcrystals_dilithium3_avx2_poly_nttunpack
+  0.00      1.90     0.00   922681     0.00     0.00  pqcrystals_dilithium3_avx2_poly_invntt_tomont
+  0.00      1.90     0.00   764475     0.00     0.00  pqcrystals_dilithium3_avx2_poly_ntt
+  0.00      1.90     0.00   557953     0.00     0.00  pqcrystals_dilithium3_avx2_poly_pointwise_montgomery
+  0.00      1.90     0.00   557953     0.00     0.00  pqcrystals_dilithium3_avx2_poly_reduce
+  0.00      1.90     0.00   538197     0.00     0.00  pqcrystals_dilithium3_avx2_poly_chknorm
+  0.00      1.90     0.00   484388     0.00     0.00  pqcrystals_dilithium3_avx2_poly_caddq
+  0.00      1.90     0.00   424388     0.00     0.00  pqcrystals_dilithium3_avx2_polyw1_pack
+  0.00      1.90     0.00   400475     0.00     0.00  pqcrystals_dilithium_fips202_avx2_sha3_512
+  0.00      1.90     0.00   374231     0.00     0.00  pqcrystals_dilithium3_avx2_poly_add
+  0.00      1.90     0.00   319687     0.00     0.06  pqcrystals_dilithium3_avx2_poly_uniform_4x
+  0.00      1.90     0.00   319687     0.00     0.00  pqcrystals_dilithium_fips202x4_avx2_shake128x4_absorb_once
+  0.00      1.90     0.00   319687     0.00     0.00  pqcrystals_dilithium_fips202x4_avx2_shake128x4_squeezeblocks
+  0.00      1.90     0.00   304728     0.00     0.00  pqcrystals_dilithium3_avx2_poly_decompose
+  0.00      1.90     0.00   243722     0.00     0.00  pqcrystals_dilithium3_avx2_poly_sub
+  0.00      1.90     0.00   232217     0.00     0.00  pqcrystals_dilithium_fips202_avx2_shake256_finalize
+  0.00      1.90     0.00   232217     0.00     0.00  pqcrystals_dilithium_fips202_avx2_shake256_init
+  0.00      1.90     0.00   179753     0.00     0.00  pqcrystals_dilithium3_avx2_polyvecl_pointwise_acc_montgomery
+  0.00      1.90     0.00   121576     0.00     0.91  pqcrystals_dilithium_fips202_avx2_shake256_squeezeblocks
+  0.00      1.90     0.00   120000     0.00     0.00  pqcrystals_dilithium3_avx2_rej_eta_avx
+  0.00      1.90     0.00   119753     0.00     0.00  pqcrystals_dilithium3_avx2_poly_shiftl
+  0.00      1.90     0.00   119660     0.00     0.00  pqcrystals_dilithium3_avx2_poly_use_hint
+  0.00      1.90     0.00   110000     0.00     0.00  pqcrystals_dilithium3_avx2_polyeta_unpack
+  0.00      1.90     0.00   102506     0.00     0.00  pqcrystals_dilithium3_avx2_make_hint_avx
+  0.00      1.90     0.00   102506     0.00     0.00  pqcrystals_dilithium3_avx2_poly_make_hint
+  0.00      1.90     0.00    99997     0.00     0.00  pqcrystals_dilithium3_avx2_polyz_unpack
+  0.00      1.90     0.00    80788     0.00     0.00  pqcrystals_dilithium_fips202x4_avx2_shake256x4_absorb_once
+  0.00      1.90     0.00    80788     0.00     0.00  pqcrystals_dilithium_fips202x4_avx2_shake256x4_squeezeblocks
+  0.00      1.90     0.00    70788     0.00     0.00  pqcrystals_dilithium3_avx2_polyvecl_ntt
+  0.00      1.90     0.00    60000     0.00     0.00  pqcrystals_dilithium3_avx2_poly_power2round
+  0.00      1.90     0.00    60000     0.00     0.00  pqcrystals_dilithium3_avx2_polyt0_pack
+  0.00      1.90     0.00    60000     0.00     0.00  pqcrystals_dilithium3_avx2_polyt0_unpack
+  0.00      1.90     0.00    60000     0.00     0.00  pqcrystals_dilithium3_avx2_polyt1_pack
+  0.00      1.90     0.00    60000     0.00     0.00  pqcrystals_dilithium3_avx2_power2round_avx
+  0.00      1.90     0.00    50788     0.00     0.94  pqcrystals_dilithium3_avx2_dilithium_shake256_stream_init
+  0.00      1.90     0.00    50788     0.00     1.85  pqcrystals_dilithium3_avx2_poly_uniform_gamma1
+  0.00      1.90     0.00    50788     0.00     0.00  pqcrystals_dilithium3_avx2_poly_uniform_gamma1_4x
+  0.00      1.90     0.00    50788     0.00     0.00  pqcrystals_dilithium3_avx2_polyvec_matrix_pointwise_montgomery
+  0.00      1.90     0.00    50788     0.00     0.00  pqcrystals_dilithium3_avx2_polyveck_caddq
+  0.00      1.90     0.00    50788     0.00     0.39  pqcrystals_dilithium3_avx2_polyveck_decompose
+  0.00      1.90     0.00    50788     0.00     0.00  pqcrystals_dilithium3_avx2_polyveck_invntt_tomont
+  0.00      1.90     0.00    50788     0.00     0.00  pqcrystals_dilithium3_avx2_polyveck_pack_w1
+  0.00      1.90     0.00    50054     0.00     0.00  randombytes
+  0.00      1.90     0.00    40000     0.00     0.68  pqcrystals_dilithium_fips202_avx2_shake256
+  0.00      1.90     0.00    39997     0.00     0.13  pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0
+  0.00      1.90     0.00    39937     0.00     0.13  pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4
+  0.00      1.90     0.00    30000     0.00     0.00  pqcrystals_dilithium3_avx2_poly_uniform_eta_4x
+  0.00      1.90     0.00    29983     0.00     0.06  pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row1
+  0.00      1.90     0.00    29969     0.00     0.06  pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row2
+  0.00      1.90     0.00    29953     0.00     0.06  pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row3
+  0.00      1.90     0.00    29914     0.00     0.06  pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row5
+  0.00      1.90     0.00    20000     0.00     7.55  pqcrystals_dilithium3_avx2_open
+  0.00      1.90     0.00    20000     0.00     0.00  pqcrystals_dilithium3_avx2_polyveck_ntt
+  0.00      1.90     0.00    20000     0.00     7.55  pqcrystals_dilithium3_avx2_verify
+  0.00      1.90     0.00    10000     0.00    34.03  pqcrystals_dilithium3_avx2
+  0.00      1.90     0.00    10000     0.00     2.86  pqcrystals_dilithium3_avx2_keypair
+  0.00      1.90     0.00    10000     0.00     0.50  pqcrystals_dilithium3_avx2_polyvec_matrix_expand
+  0.00      1.90     0.00    10000     0.00    34.03  pqcrystals_dilithium3_avx2_signature
+  0.00      1.90     0.00    10000     0.00    34.03  pqcrystals_dilithium3_avx2_signature_internal
+  0.00      1.90     0.00    10000     0.00     0.00  pqcrystals_dilithium3_avx2_unpack_sk
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.53% of 1.90 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     43.7    0.83    0.00                 looptop [1]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     27.4    0.00    0.52                 main [2]
+                0.00    0.34   10000/10000       pqcrystals_dilithium3_avx2 [3]
+                0.00    0.15   20000/20000       pqcrystals_dilithium3_avx2_open [10]
+                0.00    0.03   10000/10000       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   30054/50054       randombytes [75]
+-----------------------------------------------
+                0.00    0.34   10000/10000       main [2]
+[3]     17.9    0.00    0.34   10000         pqcrystals_dilithium3_avx2 [3]
+                0.00    0.34   10000/10000       pqcrystals_dilithium3_avx2_signature [4]
+-----------------------------------------------
+                0.00    0.34   10000/10000       pqcrystals_dilithium3_avx2 [3]
+[4]     17.9    0.00    0.34   10000         pqcrystals_dilithium3_avx2_signature [4]
+                0.00    0.34   10000/10000       pqcrystals_dilithium3_avx2_signature_internal [5]
+                0.00    0.00   10000/50054       randombytes [75]
+-----------------------------------------------
+                0.00    0.34   10000/10000       pqcrystals_dilithium3_avx2_signature [4]
+[5]     17.9    0.00    0.34   10000         pqcrystals_dilithium3_avx2_signature_internal [5]
+                0.00    0.09   50788/50788       pqcrystals_dilithium3_avx2_poly_uniform_gamma1 [15]
+                0.01    0.07   50788/70788       pqcrystals_dilithium3_avx2_poly_challenge [13]
+                0.02    0.06  161576/433646      pqcrystals_dilithium_fips202_avx2_shake256_absorb [8]
+                0.01    0.02   70788/110641      pqcrystals_dilithium_fips202_avx2_shake256_squeeze [18]
+                0.03    0.00   50000/50000       pqcrystals_dilithium3_avx2_polyz_pack [19]
+                0.00    0.02   50788/50788       pqcrystals_dilithium3_avx2_polyveck_decompose [26]
+                0.00    0.01   10000/10000       pqcrystals_dilithium3_avx2_polyvec_matrix_expand [31]
+                0.00    0.00  438200/557953      pqcrystals_dilithium3_avx2_poly_pointwise_montgomery [41]
+                0.00    0.00  438200/922681      pqcrystals_dilithium3_avx2_poly_invntt_tomont [39]
+                0.00    0.00  438200/557953      pqcrystals_dilithium3_avx2_poly_reduce [42]
+                0.00    0.00  438200/538197      pqcrystals_dilithium3_avx2_poly_chknorm [43]
+                0.00    0.00  314231/374231      pqcrystals_dilithium3_avx2_poly_add [47]
+                0.00    0.00  123969/243722      pqcrystals_dilithium3_avx2_poly_sub [51]
+                0.00    0.00  102506/102506      pqcrystals_dilithium3_avx2_make_hint_avx [59]
+                0.00    0.00  102506/102506      pqcrystals_dilithium3_avx2_poly_make_hint [60]
+                0.00    0.00   70788/232217      pqcrystals_dilithium_fips202_avx2_shake256_init [53]
+                0.00    0.00   70788/232217      pqcrystals_dilithium_fips202_avx2_shake256_finalize [52]
+                0.00    0.00   60788/70788       pqcrystals_dilithium3_avx2_polyvecl_ntt [64]
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_poly_uniform_gamma1_4x [70]
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_polyveck_invntt_tomont [73]
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_polyvec_matrix_pointwise_montgomery [71]
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_polyveck_caddq [72]
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_polyveck_pack_w1 [74]
+                0.00    0.00   50788/764475      pqcrystals_dilithium3_avx2_poly_ntt [40]
+                0.00    0.00   20000/20000       pqcrystals_dilithium3_avx2_polyveck_ntt [77]
+                0.00    0.00   10000/10000       pqcrystals_dilithium3_avx2_unpack_sk [78]
+-----------------------------------------------
+                              420000             KeccakF1600_StatePermute [6]
+                0.03    0.00   80000/969215      pqcrystals_dilithium_fips202_avx2_shake256 [22]
+                0.04    0.00  110641/969215      pqcrystals_dilithium_fips202_avx2_shake256_squeeze [18]
+                0.11    0.00  324728/969215      pqcrystals_dilithium_fips202_avx2_shake256_squeezeblocks [14]
+                0.15    0.00  453846/969215      pqcrystals_dilithium_fips202_avx2_shake256_absorb [8]
+[6]     17.4    0.33    0.00  969215+420000  KeccakF1600_StatePermute [6]
+                              420000             KeccakF1600_StatePermute [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[7]     13.2    0.25    0.00                 pqcrystals_dilithium3_avx2_invntt_avx [7]
+-----------------------------------------------
+                0.01    0.03   70788/433646      pqcrystals_dilithium3_avx2_poly_challenge [13]
+                0.01    0.04   99706/433646      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.01    0.04  101576/433646      pqcrystals_dilithium3_avx2_dilithium_shake256_stream_init [17]
+                0.02    0.06  161576/433646      pqcrystals_dilithium3_avx2_signature_internal [5]
+[8]     10.8    0.05    0.15  433646         pqcrystals_dilithium_fips202_avx2_shake256_absorb [8]
+                0.15    0.00  453846/969215      KeccakF1600_StatePermute [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[9]     10.5    0.20    0.00                 pqcrystals_dilithium3_avx2_ntt_avx [9]
+-----------------------------------------------
+                0.00    0.15   20000/20000       main [2]
+[10]     8.0    0.00    0.15   20000         pqcrystals_dilithium3_avx2_open [10]
+                0.00    0.15   20000/20000       pqcrystals_dilithium3_avx2_verify [11]
+-----------------------------------------------
+                0.00    0.15   20000/20000       pqcrystals_dilithium3_avx2_open [10]
+[11]     8.0    0.00    0.15   20000         pqcrystals_dilithium3_avx2_verify [11]
+                0.01    0.14   20000/20000       pqcrystals_dilithium3_avx2_verify_internal [12]
+-----------------------------------------------
+                0.01    0.14   20000/20000       pqcrystals_dilithium3_avx2_verify [11]
+[12]     8.0    0.01    0.14   20000         pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.01    0.04   99706/433646      pqcrystals_dilithium_fips202_avx2_shake256_absorb [8]
+                0.01    0.03   20000/70788       pqcrystals_dilithium3_avx2_poly_challenge [13]
+                0.00    0.01   39853/110641      pqcrystals_dilithium_fips202_avx2_shake256_squeeze [18]
+                0.00    0.01   20000/40000       pqcrystals_dilithium_fips202_avx2_shake256 [22]
+                0.01    0.00  119753/119753      pqcrystals_dilithium3_avx2_polyt1_unpack [27]
+                0.01    0.00  119660/119660      pqcrystals_dilithium3_avx2_use_hint_avx [28]
+                0.00    0.00   19997/39997       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0 [32]
+                0.00    0.00   19937/39937       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4 [33]
+                0.00    0.00   19983/29983       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row1 [34]
+                0.00    0.00   19969/29969       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row2 [35]
+                0.00    0.00   19953/29953       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row3 [36]
+                0.00    0.00   19914/29914       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row5 [37]
+                0.00    0.00  239747/764475      pqcrystals_dilithium3_avx2_poly_ntt [40]
+                0.00    0.00  119753/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+                0.00    0.00  119753/179753      pqcrystals_dilithium3_avx2_polyvecl_pointwise_acc_montgomery [54]
+                0.00    0.00  119753/119753      pqcrystals_dilithium3_avx2_poly_shiftl [56]
+                0.00    0.00  119753/557953      pqcrystals_dilithium3_avx2_poly_pointwise_montgomery [41]
+                0.00    0.00  119753/243722      pqcrystals_dilithium3_avx2_poly_sub [51]
+                0.00    0.00  119753/922681      pqcrystals_dilithium3_avx2_poly_invntt_tomont [39]
+                0.00    0.00  119753/557953      pqcrystals_dilithium3_avx2_poly_reduce [42]
+                0.00    0.00  119660/484388      pqcrystals_dilithium3_avx2_poly_caddq [44]
+                0.00    0.00  119660/119660      pqcrystals_dilithium3_avx2_poly_use_hint [57]
+                0.00    0.00  119660/424388      pqcrystals_dilithium3_avx2_polyw1_pack [45]
+                0.00    0.00   99997/99997       pqcrystals_dilithium3_avx2_polyz_unpack [61]
+                0.00    0.00   99997/538197      pqcrystals_dilithium3_avx2_poly_chknorm [43]
+                0.00    0.00   39853/232217      pqcrystals_dilithium_fips202_avx2_shake256_init [53]
+                0.00    0.00   39853/232217      pqcrystals_dilithium_fips202_avx2_shake256_finalize [52]
+-----------------------------------------------
+                0.01    0.03   20000/70788       pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.01    0.07   50788/70788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[13]     6.2    0.02    0.10   70788         pqcrystals_dilithium3_avx2_poly_challenge [13]
+                0.00    0.06   70788/121576      pqcrystals_dilithium_fips202_avx2_shake256_squeezeblocks [14]
+                0.01    0.03   70788/433646      pqcrystals_dilithium_fips202_avx2_shake256_absorb [8]
+                0.00    0.00   70788/232217      pqcrystals_dilithium_fips202_avx2_shake256_init [53]
+                0.00    0.00   70788/232217      pqcrystals_dilithium_fips202_avx2_shake256_finalize [52]
+-----------------------------------------------
+                0.00    0.05   50788/121576      pqcrystals_dilithium3_avx2_poly_uniform_gamma1 [15]
+                0.00    0.06   70788/121576      pqcrystals_dilithium3_avx2_poly_challenge [13]
+[14]     5.8    0.00    0.11  121576         pqcrystals_dilithium_fips202_avx2_shake256_squeezeblocks [14]
+                0.11    0.00  324728/969215      KeccakF1600_StatePermute [6]
+-----------------------------------------------
+                0.00    0.09   50788/50788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[15]     5.0    0.00    0.09   50788         pqcrystals_dilithium3_avx2_poly_uniform_gamma1 [15]
+                0.00    0.05   50788/50788       pqcrystals_dilithium3_avx2_dilithium_shake256_stream_init [17]
+                0.00    0.05   50788/121576      pqcrystals_dilithium_fips202_avx2_shake256_squeezeblocks [14]
+-----------------------------------------------
+                                                 <spontaneous>
+[16]     3.2    0.06    0.00                 _looptop2 [16]
+-----------------------------------------------
+                0.00    0.05   50788/50788       pqcrystals_dilithium3_avx2_poly_uniform_gamma1 [15]
+[17]     2.5    0.00    0.05   50788         pqcrystals_dilithium3_avx2_dilithium_shake256_stream_init [17]
+                0.01    0.04  101576/433646      pqcrystals_dilithium_fips202_avx2_shake256_absorb [8]
+                0.00    0.00   50788/232217      pqcrystals_dilithium_fips202_avx2_shake256_init [53]
+                0.00    0.00   50788/232217      pqcrystals_dilithium_fips202_avx2_shake256_finalize [52]
+-----------------------------------------------
+                0.00    0.01   39853/110641      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.01    0.02   70788/110641      pqcrystals_dilithium3_avx2_signature_internal [5]
+[18]     2.5    0.01    0.04  110641         pqcrystals_dilithium_fips202_avx2_shake256_squeeze [18]
+                0.04    0.00  110641/969215      KeccakF1600_StatePermute [6]
+-----------------------------------------------
+                0.03    0.00   50000/50000       pqcrystals_dilithium3_avx2_signature_internal [5]
+[19]     1.6    0.03    0.00   50000         pqcrystals_dilithium3_avx2_polyz_pack [19]
+-----------------------------------------------
+                                                 <spontaneous>
+[20]     1.6    0.03    0.00                 _looptop1 [20]
+-----------------------------------------------
+                0.00    0.03   10000/10000       main [2]
+[21]     1.5    0.00    0.03   10000         pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.01   20000/40000       pqcrystals_dilithium_fips202_avx2_shake256 [22]
+                0.01    0.00  110000/110000      pqcrystals_dilithium3_avx2_polyeta_pack [29]
+                0.00    0.00   10000/39937       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4 [33]
+                0.00    0.00   10000/39997       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0 [32]
+                0.00    0.00   10000/29914       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row5 [37]
+                0.00    0.00   10000/29953       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row3 [36]
+                0.00    0.00   10000/29969       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row2 [35]
+                0.00    0.00   10000/29983       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row1 [34]
+                0.00    0.00   60000/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+                0.00    0.00   60000/922681      pqcrystals_dilithium3_avx2_poly_invntt_tomont [39]
+                0.00    0.00   60000/179753      pqcrystals_dilithium3_avx2_polyvecl_pointwise_acc_montgomery [54]
+                0.00    0.00   60000/374231      pqcrystals_dilithium3_avx2_poly_add [47]
+                0.00    0.00   60000/484388      pqcrystals_dilithium3_avx2_poly_caddq [44]
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_power2round_avx [69]
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_poly_power2round [65]
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_polyt1_pack [68]
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_polyt0_pack [66]
+                0.00    0.00   30000/30000       pqcrystals_dilithium3_avx2_poly_uniform_eta_4x [76]
+                0.00    0.00   10000/50054       randombytes [75]
+                0.00    0.00   10000/70788       pqcrystals_dilithium3_avx2_polyvecl_ntt [64]
+-----------------------------------------------
+                0.00    0.01   20000/40000       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.01   20000/40000       pqcrystals_dilithium3_avx2_verify_internal [12]
+[22]     1.4    0.00    0.03   40000         pqcrystals_dilithium_fips202_avx2_shake256 [22]
+                0.03    0.00   80000/969215      KeccakF1600_StatePermute [6]
+-----------------------------------------------
+                0.02    0.00 1278748/1278748     pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+[23]     1.1    0.02    0.00 1278748         pqcrystals_dilithium3_avx2_rej_uniform_avx [23]
+-----------------------------------------------
+                0.00    0.00   29914/319687      pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row5 [37]
+                0.00    0.00   29953/319687      pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row3 [36]
+                0.00    0.00   29969/319687      pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row2 [35]
+                0.00    0.00   29983/319687      pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row1 [34]
+                0.00    0.00   40000/319687      pqcrystals_dilithium3_avx2_polyvec_matrix_expand [31]
+                0.00    0.00   79874/319687      pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4 [33]
+                0.00    0.01   79994/319687      pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0 [32]
+[24]     1.1    0.00    0.02  319687         pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.02    0.00 1278748/1278748     pqcrystals_dilithium3_avx2_rej_uniform_avx [23]
+                0.00    0.00  319687/400475      pqcrystals_dilithium_fips202_avx2_sha3_512 [46]
+                0.00    0.00  319687/319687      pqcrystals_dilithium_fips202x4_avx2_shake128x4_absorb_once [48]
+                0.00    0.00  319687/319687      pqcrystals_dilithium_fips202x4_avx2_shake128x4_squeezeblocks [49]
+-----------------------------------------------
+                0.02    0.00  304728/304728      pqcrystals_dilithium3_avx2_polyveck_decompose [26]
+[25]     1.1    0.02    0.00  304728         pqcrystals_dilithium3_avx2_decompose_avx [25]
+-----------------------------------------------
+                0.00    0.02   50788/50788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[26]     1.1    0.00    0.02   50788         pqcrystals_dilithium3_avx2_polyveck_decompose [26]
+                0.02    0.00  304728/304728      pqcrystals_dilithium3_avx2_decompose_avx [25]
+                0.00    0.00  304728/304728      pqcrystals_dilithium3_avx2_poly_decompose [50]
+-----------------------------------------------
+                0.01    0.00  119753/119753      pqcrystals_dilithium3_avx2_verify_internal [12]
+[27]     0.5    0.01    0.00  119753         pqcrystals_dilithium3_avx2_polyt1_unpack [27]
+-----------------------------------------------
+                0.01    0.00  119660/119660      pqcrystals_dilithium3_avx2_verify_internal [12]
+[28]     0.5    0.01    0.00  119660         pqcrystals_dilithium3_avx2_use_hint_avx [28]
+-----------------------------------------------
+                0.01    0.00  110000/110000      pqcrystals_dilithium3_avx2_keypair [21]
+[29]     0.5    0.01    0.00  110000         pqcrystals_dilithium3_avx2_polyeta_pack [29]
+-----------------------------------------------
+                                                 <spontaneous>
+[30]     0.5    0.01    0.00                 nttunpack128_avx [30]
+-----------------------------------------------
+                0.00    0.01   10000/10000       pqcrystals_dilithium3_avx2_signature_internal [5]
+[31]     0.3    0.00    0.01   10000         pqcrystals_dilithium3_avx2_polyvec_matrix_expand [31]
+                0.00    0.00   40000/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.00    0.00   10000/39997       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0 [32]
+                0.00    0.00   10000/39937       pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4 [33]
+                0.00    0.00  160000/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   10000/39997       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   10000/39997       pqcrystals_dilithium3_avx2_polyvec_matrix_expand [31]
+                0.00    0.00   19997/39997       pqcrystals_dilithium3_avx2_verify_internal [12]
+[32]     0.3    0.00    0.01   39997         pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0 [32]
+                0.00    0.01   79994/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.00    0.00  279979/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   10000/39937       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   10000/39937       pqcrystals_dilithium3_avx2_polyvec_matrix_expand [31]
+                0.00    0.00   19937/39937       pqcrystals_dilithium3_avx2_verify_internal [12]
+[33]     0.3    0.00    0.00   39937         pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4 [33]
+                0.00    0.00   79874/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.00    0.00  279559/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   10000/29983       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   19983/29983       pqcrystals_dilithium3_avx2_verify_internal [12]
+[34]     0.1    0.00    0.00   29983         pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row1 [34]
+                0.00    0.00   29983/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.00    0.00   89949/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   10000/29969       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   19969/29969       pqcrystals_dilithium3_avx2_verify_internal [12]
+[35]     0.1    0.00    0.00   29969         pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row2 [35]
+                0.00    0.00   29969/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.00    0.00   89907/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   10000/29953       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   19953/29953       pqcrystals_dilithium3_avx2_verify_internal [12]
+[36]     0.1    0.00    0.00   29953         pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row3 [36]
+                0.00    0.00   29953/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.00    0.00   89859/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   10000/29914       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   19914/29914       pqcrystals_dilithium3_avx2_verify_internal [12]
+[37]     0.1    0.00    0.00   29914         pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row5 [37]
+                0.00    0.00   29914/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+                0.00    0.00   29914/1198920     pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   29914/1198920     pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row5 [37]
+                0.00    0.00   60000/1198920     pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   89859/1198920     pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row3 [36]
+                0.00    0.00   89907/1198920     pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row2 [35]
+                0.00    0.00   89949/1198920     pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row1 [34]
+                0.00    0.00  119753/1198920     pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  160000/1198920     pqcrystals_dilithium3_avx2_polyvec_matrix_expand [31]
+                0.00    0.00  279559/1198920     pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4 [33]
+                0.00    0.00  279979/1198920     pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0 [32]
+[38]     0.0    0.00    0.00 1198920         pqcrystals_dilithium3_avx2_poly_nttunpack [38]
+-----------------------------------------------
+                0.00    0.00   60000/922681      pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00  119753/922681      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  304728/922681      pqcrystals_dilithium3_avx2_polyveck_invntt_tomont [73]
+                0.00    0.00  438200/922681      pqcrystals_dilithium3_avx2_signature_internal [5]
+[39]     0.0    0.00    0.00  922681         pqcrystals_dilithium3_avx2_poly_invntt_tomont [39]
+-----------------------------------------------
+                0.00    0.00   50788/764475      pqcrystals_dilithium3_avx2_signature_internal [5]
+                0.00    0.00  120000/764475      pqcrystals_dilithium3_avx2_polyveck_ntt [77]
+                0.00    0.00  239747/764475      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  353940/764475      pqcrystals_dilithium3_avx2_polyvecl_ntt [64]
+[40]     0.0    0.00    0.00  764475         pqcrystals_dilithium3_avx2_poly_ntt [40]
+-----------------------------------------------
+                0.00    0.00  119753/557953      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  438200/557953      pqcrystals_dilithium3_avx2_signature_internal [5]
+[41]     0.0    0.00    0.00  557953         pqcrystals_dilithium3_avx2_poly_pointwise_montgomery [41]
+-----------------------------------------------
+                0.00    0.00  119753/557953      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  438200/557953      pqcrystals_dilithium3_avx2_signature_internal [5]
+[42]     0.0    0.00    0.00  557953         pqcrystals_dilithium3_avx2_poly_reduce [42]
+-----------------------------------------------
+                0.00    0.00   99997/538197      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  438200/538197      pqcrystals_dilithium3_avx2_signature_internal [5]
+[43]     0.0    0.00    0.00  538197         pqcrystals_dilithium3_avx2_poly_chknorm [43]
+-----------------------------------------------
+                0.00    0.00   60000/484388      pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00  119660/484388      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  304728/484388      pqcrystals_dilithium3_avx2_polyveck_caddq [72]
+[44]     0.0    0.00    0.00  484388         pqcrystals_dilithium3_avx2_poly_caddq [44]
+-----------------------------------------------
+                0.00    0.00  119660/424388      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  304728/424388      pqcrystals_dilithium3_avx2_polyveck_pack_w1 [74]
+[45]     0.0    0.00    0.00  424388         pqcrystals_dilithium3_avx2_polyw1_pack [45]
+-----------------------------------------------
+                0.00    0.00   30000/400475      pqcrystals_dilithium3_avx2_poly_uniform_eta_4x [76]
+                0.00    0.00   50788/400475      pqcrystals_dilithium3_avx2_poly_uniform_gamma1_4x [70]
+                0.00    0.00  319687/400475      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+[46]     0.0    0.00    0.00  400475         pqcrystals_dilithium_fips202_avx2_sha3_512 [46]
+-----------------------------------------------
+                0.00    0.00   60000/374231      pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00  314231/374231      pqcrystals_dilithium3_avx2_signature_internal [5]
+[47]     0.0    0.00    0.00  374231         pqcrystals_dilithium3_avx2_poly_add [47]
+-----------------------------------------------
+                0.00    0.00  319687/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+[48]     0.0    0.00    0.00  319687         pqcrystals_dilithium_fips202x4_avx2_shake128x4_absorb_once [48]
+-----------------------------------------------
+                0.00    0.00  319687/319687      pqcrystals_dilithium3_avx2_poly_uniform_4x [24]
+[49]     0.0    0.00    0.00  319687         pqcrystals_dilithium_fips202x4_avx2_shake128x4_squeezeblocks [49]
+-----------------------------------------------
+                0.00    0.00  304728/304728      pqcrystals_dilithium3_avx2_polyveck_decompose [26]
+[50]     0.0    0.00    0.00  304728         pqcrystals_dilithium3_avx2_poly_decompose [50]
+-----------------------------------------------
+                0.00    0.00  119753/243722      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00  123969/243722      pqcrystals_dilithium3_avx2_signature_internal [5]
+[51]     0.0    0.00    0.00  243722         pqcrystals_dilithium3_avx2_poly_sub [51]
+-----------------------------------------------
+                0.00    0.00   39853/232217      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00   50788/232217      pqcrystals_dilithium3_avx2_dilithium_shake256_stream_init [17]
+                0.00    0.00   70788/232217      pqcrystals_dilithium3_avx2_signature_internal [5]
+                0.00    0.00   70788/232217      pqcrystals_dilithium3_avx2_poly_challenge [13]
+[52]     0.0    0.00    0.00  232217         pqcrystals_dilithium_fips202_avx2_shake256_finalize [52]
+-----------------------------------------------
+                0.00    0.00   39853/232217      pqcrystals_dilithium3_avx2_verify_internal [12]
+                0.00    0.00   50788/232217      pqcrystals_dilithium3_avx2_dilithium_shake256_stream_init [17]
+                0.00    0.00   70788/232217      pqcrystals_dilithium3_avx2_signature_internal [5]
+                0.00    0.00   70788/232217      pqcrystals_dilithium3_avx2_poly_challenge [13]
+[53]     0.0    0.00    0.00  232217         pqcrystals_dilithium_fips202_avx2_shake256_init [53]
+-----------------------------------------------
+                0.00    0.00   60000/179753      pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00  119753/179753      pqcrystals_dilithium3_avx2_verify_internal [12]
+[54]     0.0    0.00    0.00  179753         pqcrystals_dilithium3_avx2_polyvecl_pointwise_acc_montgomery [54]
+-----------------------------------------------
+                0.00    0.00  120000/120000      pqcrystals_dilithium3_avx2_poly_uniform_eta_4x [76]
+[55]     0.0    0.00    0.00  120000         pqcrystals_dilithium3_avx2_rej_eta_avx [55]
+-----------------------------------------------
+                0.00    0.00  119753/119753      pqcrystals_dilithium3_avx2_verify_internal [12]
+[56]     0.0    0.00    0.00  119753         pqcrystals_dilithium3_avx2_poly_shiftl [56]
+-----------------------------------------------
+                0.00    0.00  119660/119660      pqcrystals_dilithium3_avx2_verify_internal [12]
+[57]     0.0    0.00    0.00  119660         pqcrystals_dilithium3_avx2_poly_use_hint [57]
+-----------------------------------------------
+                0.00    0.00  110000/110000      pqcrystals_dilithium3_avx2_unpack_sk [78]
+[58]     0.0    0.00    0.00  110000         pqcrystals_dilithium3_avx2_polyeta_unpack [58]
+-----------------------------------------------
+                0.00    0.00  102506/102506      pqcrystals_dilithium3_avx2_signature_internal [5]
+[59]     0.0    0.00    0.00  102506         pqcrystals_dilithium3_avx2_make_hint_avx [59]
+-----------------------------------------------
+                0.00    0.00  102506/102506      pqcrystals_dilithium3_avx2_signature_internal [5]
+[60]     0.0    0.00    0.00  102506         pqcrystals_dilithium3_avx2_poly_make_hint [60]
+-----------------------------------------------
+                0.00    0.00   99997/99997       pqcrystals_dilithium3_avx2_verify_internal [12]
+[61]     0.0    0.00    0.00   99997         pqcrystals_dilithium3_avx2_polyz_unpack [61]
+-----------------------------------------------
+                0.00    0.00   30000/80788       pqcrystals_dilithium3_avx2_poly_uniform_eta_4x [76]
+                0.00    0.00   50788/80788       pqcrystals_dilithium3_avx2_poly_uniform_gamma1_4x [70]
+[62]     0.0    0.00    0.00   80788         pqcrystals_dilithium_fips202x4_avx2_shake256x4_absorb_once [62]
+-----------------------------------------------
+                0.00    0.00   30000/80788       pqcrystals_dilithium3_avx2_poly_uniform_eta_4x [76]
+                0.00    0.00   50788/80788       pqcrystals_dilithium3_avx2_poly_uniform_gamma1_4x [70]
+[63]     0.0    0.00    0.00   80788         pqcrystals_dilithium_fips202x4_avx2_shake256x4_squeezeblocks [63]
+-----------------------------------------------
+                0.00    0.00   10000/70788       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   60788/70788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[64]     0.0    0.00    0.00   70788         pqcrystals_dilithium3_avx2_polyvecl_ntt [64]
+                0.00    0.00  353940/764475      pqcrystals_dilithium3_avx2_poly_ntt [40]
+-----------------------------------------------
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_keypair [21]
+[65]     0.0    0.00    0.00   60000         pqcrystals_dilithium3_avx2_poly_power2round [65]
+-----------------------------------------------
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_keypair [21]
+[66]     0.0    0.00    0.00   60000         pqcrystals_dilithium3_avx2_polyt0_pack [66]
+-----------------------------------------------
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_unpack_sk [78]
+[67]     0.0    0.00    0.00   60000         pqcrystals_dilithium3_avx2_polyt0_unpack [67]
+-----------------------------------------------
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_keypair [21]
+[68]     0.0    0.00    0.00   60000         pqcrystals_dilithium3_avx2_polyt1_pack [68]
+-----------------------------------------------
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_keypair [21]
+[69]     0.0    0.00    0.00   60000         pqcrystals_dilithium3_avx2_power2round_avx [69]
+-----------------------------------------------
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[70]     0.0    0.00    0.00   50788         pqcrystals_dilithium3_avx2_poly_uniform_gamma1_4x [70]
+                0.00    0.00   50788/400475      pqcrystals_dilithium_fips202_avx2_sha3_512 [46]
+                0.00    0.00   50788/80788       pqcrystals_dilithium_fips202x4_avx2_shake256x4_absorb_once [62]
+                0.00    0.00   50788/80788       pqcrystals_dilithium_fips202x4_avx2_shake256x4_squeezeblocks [63]
+-----------------------------------------------
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[71]     0.0    0.00    0.00   50788         pqcrystals_dilithium3_avx2_polyvec_matrix_pointwise_montgomery [71]
+-----------------------------------------------
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[72]     0.0    0.00    0.00   50788         pqcrystals_dilithium3_avx2_polyveck_caddq [72]
+                0.00    0.00  304728/484388      pqcrystals_dilithium3_avx2_poly_caddq [44]
+-----------------------------------------------
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[73]     0.0    0.00    0.00   50788         pqcrystals_dilithium3_avx2_polyveck_invntt_tomont [73]
+                0.00    0.00  304728/922681      pqcrystals_dilithium3_avx2_poly_invntt_tomont [39]
+-----------------------------------------------
+                0.00    0.00   50788/50788       pqcrystals_dilithium3_avx2_signature_internal [5]
+[74]     0.0    0.00    0.00   50788         pqcrystals_dilithium3_avx2_polyveck_pack_w1 [74]
+                0.00    0.00  304728/424388      pqcrystals_dilithium3_avx2_polyw1_pack [45]
+-----------------------------------------------
+                0.00    0.00   10000/50054       pqcrystals_dilithium3_avx2_keypair [21]
+                0.00    0.00   10000/50054       pqcrystals_dilithium3_avx2_signature [4]
+                0.00    0.00   30054/50054       main [2]
+[75]     0.0    0.00    0.00   50054         randombytes [75]
+-----------------------------------------------
+                0.00    0.00   30000/30000       pqcrystals_dilithium3_avx2_keypair [21]
+[76]     0.0    0.00    0.00   30000         pqcrystals_dilithium3_avx2_poly_uniform_eta_4x [76]
+                0.00    0.00  120000/120000      pqcrystals_dilithium3_avx2_rej_eta_avx [55]
+                0.00    0.00   30000/400475      pqcrystals_dilithium_fips202_avx2_sha3_512 [46]
+                0.00    0.00   30000/80788       pqcrystals_dilithium_fips202x4_avx2_shake256x4_absorb_once [62]
+                0.00    0.00   30000/80788       pqcrystals_dilithium_fips202x4_avx2_shake256x4_squeezeblocks [63]
+-----------------------------------------------
+                0.00    0.00   20000/20000       pqcrystals_dilithium3_avx2_signature_internal [5]
+[77]     0.0    0.00    0.00   20000         pqcrystals_dilithium3_avx2_polyveck_ntt [77]
+                0.00    0.00  120000/764475      pqcrystals_dilithium3_avx2_poly_ntt [40]
+-----------------------------------------------
+                0.00    0.00   10000/10000       pqcrystals_dilithium3_avx2_signature_internal [5]
+[78]     0.0    0.00    0.00   10000         pqcrystals_dilithium3_avx2_unpack_sk [78]
+                0.00    0.00  110000/110000      pqcrystals_dilithium3_avx2_polyeta_unpack [58]
+                0.00    0.00   60000/60000       pqcrystals_dilithium3_avx2_polyt0_unpack [67]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [6] KeccakF1600_StatePermute (fips202.c) [51] pqcrystals_dilithium3_avx2_poly_sub [54] pqcrystals_dilithium3_avx2_polyvecl_pointwise_acc_montgomery
+  [20] _looptop1 (pointwise.S) [24] pqcrystals_dilithium3_avx2_poly_uniform_4x [45] pqcrystals_dilithium3_avx2_polyw1_pack
+  [16] _looptop2 (pointwise.S) [76] pqcrystals_dilithium3_avx2_poly_uniform_eta_4x [19] pqcrystals_dilithium3_avx2_polyz_pack
+   [1] looptop (f1600x4.S)    [15] pqcrystals_dilithium3_avx2_poly_uniform_gamma1 [61] pqcrystals_dilithium3_avx2_polyz_unpack
+  [30] nttunpack128_avx (shuffle.S) [70] pqcrystals_dilithium3_avx2_poly_uniform_gamma1_4x [69] pqcrystals_dilithium3_avx2_power2round_avx
+   [3] pqcrystals_dilithium3_avx2 [57] pqcrystals_dilithium3_avx2_poly_use_hint [55] pqcrystals_dilithium3_avx2_rej_eta_avx
+  [25] pqcrystals_dilithium3_avx2_decompose_avx [29] pqcrystals_dilithium3_avx2_polyeta_pack [23] pqcrystals_dilithium3_avx2_rej_uniform_avx
+  [17] pqcrystals_dilithium3_avx2_dilithium_shake256_stream_init [58] pqcrystals_dilithium3_avx2_polyeta_unpack [4] pqcrystals_dilithium3_avx2_signature
+   [7] pqcrystals_dilithium3_avx2_invntt_avx [66] pqcrystals_dilithium3_avx2_polyt0_pack [5] pqcrystals_dilithium3_avx2_signature_internal
+  [21] pqcrystals_dilithium3_avx2_keypair [67] pqcrystals_dilithium3_avx2_polyt0_unpack [78] pqcrystals_dilithium3_avx2_unpack_sk
+  [59] pqcrystals_dilithium3_avx2_make_hint_avx [68] pqcrystals_dilithium3_avx2_polyt1_pack [28] pqcrystals_dilithium3_avx2_use_hint_avx
+   [9] pqcrystals_dilithium3_avx2_ntt_avx [27] pqcrystals_dilithium3_avx2_polyt1_unpack [11] pqcrystals_dilithium3_avx2_verify
+  [10] pqcrystals_dilithium3_avx2_open [31] pqcrystals_dilithium3_avx2_polyvec_matrix_expand [12] pqcrystals_dilithium3_avx2_verify_internal
+  [47] pqcrystals_dilithium3_avx2_poly_add [32] pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row0 [46] pqcrystals_dilithium_fips202_avx2_sha3_512
+  [44] pqcrystals_dilithium3_avx2_poly_caddq [34] pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row1 [22] pqcrystals_dilithium_fips202_avx2_shake256
+  [13] pqcrystals_dilithium3_avx2_poly_challenge [35] pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row2 [8] pqcrystals_dilithium_fips202_avx2_shake256_absorb
+  [43] pqcrystals_dilithium3_avx2_poly_chknorm [36] pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row3 [52] pqcrystals_dilithium_fips202_avx2_shake256_finalize
+  [50] pqcrystals_dilithium3_avx2_poly_decompose [33] pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row4 [53] pqcrystals_dilithium_fips202_avx2_shake256_init
+  [39] pqcrystals_dilithium3_avx2_poly_invntt_tomont [37] pqcrystals_dilithium3_avx2_polyvec_matrix_expand_row5 [18] pqcrystals_dilithium_fips202_avx2_shake256_squeeze
+  [60] pqcrystals_dilithium3_avx2_poly_make_hint [71] pqcrystals_dilithium3_avx2_polyvec_matrix_pointwise_montgomery [14] pqcrystals_dilithium_fips202_avx2_shake256_squeezeblocks
+  [40] pqcrystals_dilithium3_avx2_poly_ntt [72] pqcrystals_dilithium3_avx2_polyveck_caddq [48] pqcrystals_dilithium_fips202x4_avx2_shake128x4_absorb_once
+  [38] pqcrystals_dilithium3_avx2_poly_nttunpack [26] pqcrystals_dilithium3_avx2_polyveck_decompose [49] pqcrystals_dilithium_fips202x4_avx2_shake128x4_squeezeblocks
+  [41] pqcrystals_dilithium3_avx2_poly_pointwise_montgomery [73] pqcrystals_dilithium3_avx2_polyveck_invntt_tomont [62] pqcrystals_dilithium_fips202x4_avx2_shake256x4_absorb_once
+  [65] pqcrystals_dilithium3_avx2_poly_power2round [77] pqcrystals_dilithium3_avx2_polyveck_ntt [63] pqcrystals_dilithium_fips202x4_avx2_shake256x4_squeezeblocks
+  [42] pqcrystals_dilithium3_avx2_poly_reduce [74] pqcrystals_dilithium3_avx2_polyveck_pack_w1 [75] randombytes
+  [56] pqcrystals_dilithium3_avx2_poly_shiftl [64] pqcrystals_dilithium3_avx2_polyvecl_ntt

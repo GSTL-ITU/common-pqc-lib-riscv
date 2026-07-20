@@ -39,6 +39,14 @@ Below values are for Hornet core running with 40 MHz clock frequency and Dilithi
 **Secret Key Size:** 2560 bytes \
 **Signature Size:** 2420 bytes 
 
+## Profiling
+
+There is a Makefile script included for profiling Dilithium using [Gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html).
+Running below command will make detailed profiling reports for reference and AVX2 implementations (all parameters included):
+```sh
+make profile
+```
+
 ## Repository Structure
 
 ```text
@@ -46,6 +54,7 @@ Below values are for Hornet core running with 40 MHz clock frequency and Dilithi
 ├── gcc             # Original source code (for reference testing and KAT generation)
 │   ├── avx2        # Implementation for Intel AVX2
 │   └── ref         # Reference implementation
+│   └── profiling   # Profiling tests
 └── risc-v
     └── hornet      # Modified Dilithium source code and related files for Hornet
 ```
