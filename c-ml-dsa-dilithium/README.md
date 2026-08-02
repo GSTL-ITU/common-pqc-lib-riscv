@@ -28,12 +28,12 @@ Running this test will print out execution flow as well as key and signature siz
 
 ### Execution Report
 
-Below values are for Hornet core running with 40 MHz clock frequency and Dilithium2 parameter set.
+Below values are for Hornet core running with 100 MHz clock frequency and Dilithium2 parameter set.
 | Operation | Time | Clock Cycles |
 | :--- | :--- | :--- |
-| **Keypair Generation** | 86,098,650 ns | 3,443,946 |
-| **Crypto Sign** | 1,051,490,400 ns | 42,059,616 |
-| **Crypto Sign Open** | 94,446,450 ns | 3,777,858 |
+| **Keypair Generation** | 86,098,575 ns | 8,609,857 |
+| **Crypto Sign** | 1,051,490,525 ns | 105,149,052 |
+| **Crypto Sign Open** | 94,446,325 ns | 9,444,632 |
 
 **Public Key Size:** 1312 bytes \
 **Secret Key Size:** 2560 bytes \
