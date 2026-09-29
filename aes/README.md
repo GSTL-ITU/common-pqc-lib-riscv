@@ -130,7 +130,6 @@ Every design choice keeps the measured window clean and repeatable:
 | GPIO trigger (slave 5) | `0x10008020` → `gpio_trigger_o` |
 | Oscilloscope | `gpio_trigger_o` → AUX In, EM probe → CH4 |
 
-> Note: the header comment in `aes_sca_main.c` still says "EM probe → CH1". The setup uses CH4.
 
 ### Security note
 
