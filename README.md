@@ -10,6 +10,7 @@ All modules have successfully completed initial porting and bare-metal RTL simul
 
 | Algorithm | Type | Status | Upstream Source |
 |---|---|---|---|
+| **AES-128** (Tiny-AES) | Symetric | 🟢 Software Ready | [kokke/tiny-AES-c](https://github.com/kokke/tiny-AES-C) |
 | **ML-KEM** (Kyber) | Key Encapsulation | 🟢 Software Ready | [pq-crystals/kyber](https://github.com/pq-crystals/kyber) |
 | **ML-DSA** (Dilithium) | Digital Signature | 🟢 Software Ready | [pq-crystals/dilithium](https://github.com/pq-crystals/dilithium) |
 | **SLH-DSA** (Sphincs+) | Digital Signature | 🟢 Software Ready | [sphincs/sphincsplus](https://github.com/sphincs/sphincsplus) |
