@@ -2,21 +2,21 @@
 
 This directory contains a bare-metal AES implementation for the Hornet RV32IMF soft core, together with two Hornet programs:
 * **`test-aes`:** a known-answer test (KAT) for RTL simulation that checks ECB, CBC, CTR and CCM.
-* **`aes-fpga`:** the target firmware for EM side-channel analysis (SCA) on the Nexys 4 DDR FPGA. The MATLAB acquisition and attack flow that drives it lives in [sca-common-tektronix/matlab/yusuf-aes](https://github.com/GSTL-ITU/sca-common-tektronix/tree/main/matlab/yusuf-aes).
+* **`aes-fpga`:** the target firmware for EM side-channel analysis (SCA) on the FPGA (Nexys 4 DDR, Nexys Video). The MATLAB acquisition and attack flow that drives it lives in [sca-common-tektronix/matlab/yusuf-aes](https://github.com/GSTL-ITU/sca-common-tektronix/tree/main/matlab/yusuf-aes).
 
 AES is not a post-quantum algorithm. It is kept in this repository as the **reference target** for the side-channel setup: a well-understood cipher whose key must be recoverable before the same setup is used on the PQC implementations.
 
 ## 🟢 Current Status
 
-* **`test-aes`:** all four modes pass in RTL simulation.
-* **`aes-fpga`:** running on the Nexys 4 DDR. The full 128-bit key has been recovered with a first-order CEMA attack (16/16 bytes).
+* **`test-aes`:** all four modes pass on Hornet version 2, in RTL simulation and on the Nexys Video; the ciphertext digest matches a native build.
+* **`aes-fpga`:** ported to Hornet version 2 (UART protocol checked in simulation). On Hornet version 1 (Nexys 4 DDR) the full 128-bit key was recovered with a first-order CEMA attack (16/16 bytes); the trigger moved to Pmod JA pin 1 in version 2, so the acquisition setup must be rewired before repeating it.
 
 ## Architecture & Hardware Context
 
 * **Target Processor:** [HORNET-RV32IMF](https://github.com/GSTL-ITU/HORNET-RV32IMF)
-* **Board:** Nexys 4 DDR (Artix-7), core clock 25 MHz
+* **Board:** Nexys 4 DDR or Nexys Video (Artix-7), core clock 50 MHz (Hornet version 2)
 * **Execution Environment:** Bare-metal (No OS)
-* **Compilation:** `riscv32-unknown-elf-gcc` (`-march=rv32imf -mabi=ilp32f -O2`)
+* **Compilation:** `riscv32-unknown-elf-gcc` (`-march=rv32imf_zicsr_zifencei -mabi=ilp32f`; `-O3` for the KAT, `-O2` for the SCA target), in Hornet's Docker image
 
 ## Acknowledgements & Source Material
 
@@ -40,58 +40,42 @@ aes/
 ├── mct-intermediate/         # Reserved (empty)
 ├── mmt-vectors/              # Reserved for multi-block message test vectors (empty)
 └── hornet/
-    ├── drivers/              # Hornet UART, IRQ and GPIO drivers
-    ├── rom_gen/              # crt0.s + rom_generator (.bin -> .mem)
-    ├── test-aes/             # RTL simulation KAT
-    │   ├── aes_main.c        # Runs ECB/CBC/CTR/CCM tests, reports via debug register
+    ├── test-aes/             # KAT + cycle counts on Hornet (make check)
+    │   ├── aes_main.c        # Runs ECB/CBC/CTR/CCM tests, times key setup and one block
     │   ├── aes_test_bare.c   # aes_test.c without stdio
-    │   ├── linksc.ld         # Hornet linker script
-    │   ├── Makefile
-    │   └── memory_init_tb.mem
+    │   └── Makefile          # ../../../hornet/hornet.mk
     └── aes-fpga/             # EM SCA target firmware
         ├── aes_sca_main.c    # UART command loop + triggered encryption
-        ├── linksc.ld
-        ├── Makefile
-        └── memory_init.mem   # Load this into the Hornet Vivado project
+        ├── sca_sim.bin       # UART input of the protocol test in simulation (make sim)
+        └── Makefile
 ```
 
 ## Building
 
-Both programs use the same flow: compile, extract the binary with `objcopy`, then convert it into a `.mem` file for the Hornet BRAM initialization with `rom_generator`.
+Both programs build with the Hornet version 2 flow (`../../hornet/hornet.mk`,
+which includes Hornet's `sw/common.mk`: startup code, drivers, linker script,
+memory images). Requirements are in the [top-level README](../README.md#running-on-hornet).
 
-Build `rom_generator` once:
-```sh
-cd hornet/rom_gen
-gcc rom_generator.c -o rom_generator
-```
-
-**Simulation KAT:**
 ```sh
 cd hornet/test-aes
-make build          # -> sim_aes.elf, memory_init_tb.mem
-```
+make check          # KAT in Verilator + native build
 
-**SCA firmware:**
-```sh
 cd hornet/aes-fpga
-make build          # -> aes_sca.elf, memory_init.mem
-make inspect        # section sizes + disassembly (aes_sca.lst)
+make                # build/aes_sca.elf, build/imem.hex, build/dmem.hex
+make sim            # protocol test: boot byte, encryption, key load, FIPS-197 vector, ping
 ```
 
-## `test-aes` — Simulation Known-Answer Test
+For the board, either put the images into a bitstream (in Hornet:
+`make fpga-build FPGA_PROG=<path>/aes/hornet/aes-fpga`) or load
+`build/aes_sca.elf` with the bootloader (`scripts/hornet_load.py`).
 
-`aes_main.c` runs the four mode tests in `aes_test_bare.c` in order. After each test it writes one character to the Hornet debug interface at `0x10008010`, so if the program hangs or crashes, the last character written shows where:
+## `test-aes` — Known-Answer Test
 
-| Character | Meaning |
-|---|---|
-| `S` | Started |
-| `1` / `a` | ECB pass / fail |
-| `2` / `b` | CBC pass / fail |
-| `3` / `c` | CTR pass / fail |
-| `4` / `d` | CCM pass / fail |
-| `P` / `F` | All passed / at least one failed |
-
-A passing run prints `S1234P`. Load `memory_init_tb.mem` into the Hornet simulation testbench to run it.
+`aes_main.c` runs the four mode tests in `aes_test_bare.c`, then times the
+AES-128 key schedule and one block encryption with `mcycle`, and prints the
+results on the UART (`result PASS` when every mode passes). On Hornet version
+2 (-O3): key schedule 3,474 cycles, one block 3,824 cycles, identical in
+simulation and on the board.
 
 ## `aes-fpga` — EM Side-Channel Target Firmware
 
@@ -117,7 +101,7 @@ The default key is the FIPS-197 / SP 800-38A test key `2b7e151628aed2a6abf715880
 Every design choice keeps the measured window clean and repeatable:
 
 * **Only the cipher runs inside the trigger window.** `triggered_encrypt()` raises the GPIO, runs 32 `nop`s, calls `aes_encrypt()`, runs 32 `nop`s and lowers the GPIO. The `nop` padding (a short, fixed delay of at least 32 cycles, since the loop adds its own instructions) keeps the GPIO edge itself out of the region the attack correlates over.
-* **The trigger is a direct register write** (`*GPIO_REG = 1`), not a call to `gpio_set_trigger()`. There is no call or branch, so the delay from the edge to the first AES instruction is the same every time.
+* **The trigger is a direct register write** (`GPIO_OUT = TRIG_PINS`), not a call to `gpio_set_trigger()`. There is no call or branch, so the delay from the edge to the first AES instruction is the same every time.
 * **Compiler barriers** (`asm volatile("" ::: "memory")`) stop `-O2` from moving any part of the AES across the trigger writes.
 * **Interrupts are off while a command is processed.** The UART ISR fills the receive buffer, and when a full frame has arrived, interrupts are disabled until the reply has been sent. No ISR can fire during the encryption.
 * **The key schedule is expanded outside the window,** when the `'k'` command arrives or at boot. The window contains only `aes_encrypt()`, with its 10 rounds.
@@ -126,9 +110,9 @@ Every design choice keeps the measured window clean and repeatable:
 
 | Signal | Address / pin |
 |---|---|
-| UART (Wishbone slave 3) | `0x10008010` (TX), `+0x1` (RX) |
-| GPIO trigger (slave 5) | `0x10008020` → `gpio_trigger_o` |
-| Oscilloscope | `gpio_trigger_o` → AUX In, EM probe → CH4 |
+| UART | `0x2001_0000` (Hornet v2 UART0, RX interrupt = fast interrupt 0) |
+| GPIO trigger | `GPIO_OUT` bits 24 and 0 (`0x2002_0000`) → Pmod JA pin 1 and LED0 |
+| Oscilloscope | JA pin 1 → AUX In, EM probe → CH4 |
 
 
 ### Security note
@@ -139,4 +123,4 @@ This firmware is **deliberately leaky**. It exists to validate a side-channel me
 
 ## License
 
-`ref/` is public domain (Brad Conte). The Hornet drivers, ROM tools and test programs follow the repository's MIT License (see the root `LICENSE`).
+`ref/` is public domain (Brad Conte). The test programs follow the repository's MIT License (see the root `LICENSE`).

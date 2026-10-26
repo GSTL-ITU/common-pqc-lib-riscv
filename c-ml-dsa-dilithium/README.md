@@ -4,40 +4,40 @@ This repo contains [CRYSTALS-Dilithium](https://github.com/pq-crystals/dilithium
 
 ## Building & Testing
 
-For a RISC-V build, you need the [RISC-V GNU Compiler Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain.git).
+The Hornet harness runs on Hornet version 2 (HORNET's startup code, drivers
+and linker script, `-O3`, output on the UART). Requirements and the FPGA flow
+are in the [top-level README](../README.md#running-on-hornet).
 
-For Hornet:
 ```sh
-make riscv_dilithium2
+cd risc-v/hornet/test
+make check                     # Dilithium2: Verilator + native build, digests must match
+make DILITHIUM_MODE=3 check    # parameter sets 2, 3 and 5
 ```
-or if you are using the multilib version of the gnu toolchain:
-```sh
-make riscv_dilithium2_multilib
-```
-where the number after dilithium ranges over the parameter set 2, 3 and 5.
 
-If you want more detailed testing, you can use
-```sh
-make riscv_test_dilithium2
-```
-or similarly for the multilib version
-```sh
-make riscv_test_dilithium2_multilib
-```
-Running this test will print out execution flow as well as key and signature sizes to the debug address. However, modifying the Hornet debug interface ```debug_interface_wb.v``` is required.
+The harness (`hornet_dilithium.c`) signs a 59-byte message with a 14-byte
+context, verifies it, checks that a changed signature byte is rejected, and
+prints the digests of the public key, secret key and signed message.
 
-### Execution Report
+### Execution Report (Dilithium2, -O3, Hornet v2 on the Nexys Video)
 
-Below values are for Hornet core running with 100 MHz clock frequency and Dilithium2 parameter set.
-| Operation | Time | Clock Cycles |
-| :--- | :--- | :--- |
-| **Keypair Generation** | 86,098,575 ns | 8,609,857 |
-| **Crypto Sign** | 1,051,490,525 ns | 105,149,052 |
-| **Crypto Sign Open** | 94,446,325 ns | 9,444,632 |
+Cycles from the 64-bit `mcycle` around each call; the Verilator simulation
+gives the same numbers.
+
+| Operation | Cycles (seed 0) | Median of 100 seeds | Min – max | Time @ 50 MHz |
+| :--- | ---: | ---: | ---: | ---: |
+| **KeyGen** | 2,912,728 | 2,951,725 | 2,893,265 – 3,029,556 | 58.3 ms |
+| **Sign** | 36,103,952 | 8,604,656 | 4,830,581 – 58,419,866 | 722.1 ms |
+| **Verify** | 3,222,682 | 3,222,400 | 3,221,991 – 3,222,800 | 64.5 ms |
 
 **Public Key Size:** 1312 bytes \
 **Secret Key Size:** 2560 bytes \
-**Signature Size:** 2420 bytes 
+**Signature Size:** 2420 bytes
+
+Signing repeats until a candidate signature passes the rejection checks, so
+its time depends on the randomness: seed 0 needs many more attempts than
+usual. The previous report (Hornet version 1, cycles from simulation
+timestamps divided by an assumed 100 MHz clock while the testbench ran at
+40 MHz) is replaced by the numbers above.
 
 ## Profiling
 
@@ -56,11 +56,11 @@ make profile
 │   └── ref         # Reference implementation
 │   └── profiling   # Profiling tests
 └── risc-v
-    └── hornet      # Modified Dilithium source code and related files for Hornet
+    └── hornet      # Modified Dilithium source code; test/ holds the Hornet harness
 ```
 
 ### Notes
 
 The random number generation has been changed with a seeded pseudo rng.
 
-"Time" and "Clock Cycles" values in the execution report are not exact, as the debug prints and if checks alter the cycle counts slightly.
+The cycle counts cover only the timed call (`mcycle` is read right before and after it).

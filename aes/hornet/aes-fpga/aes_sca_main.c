@@ -4,20 +4,20 @@
 * Author:     Yusuf Tekin
 * Date:       18-09-2026, 1:45 PM
 * Location:   aes/hornet/aes-fpga/
-* Target:     Hornet RV32IMF on Nexys 4DDR FPGA
+* Target:     Hornet RV32IMF version 2 SoC (Nexys 4 DDR, Nexys Video)
 * Details:    AES-128 EM side-channel acquisition firmware.
 *             Encryption only.
 *
 *             Host -> target : command byte + payload over UART
 *             Target -> host : response bytes over UART
 *
-*             The GPIO trigger (fpga_top: gpio_trigger_o, slave 5)
-*             goes HIGH immediately before the aes_encrypt() call and
+*             The GPIO trigger (gpio[24] = PMOD JA pin 1, mirrored on
+*             gpio[0] = LED0) goes HIGH immediately before the aes_encrypt() call and
 *             LOW immediately after it. Nothing else happens inside
 *             that window: no UART traffic, no interrupts, no key
 *             schedule expansion.
 *
-*             Wiring: gpio_trigger_o -> scope AUX In (rising edge)
+*             Wiring: JA pin 1        -> scope AUX In (rising edge)
 *                     EM probe       -> scope CH1
 *
 * ---------------------------------------------------------------------
@@ -39,14 +39,12 @@
 #include <string.h>
 
 #include "../../ref/aes.h"
-#include "../drivers/uart.h"
-#include "../drivers/irq.h"
-#include "../drivers/gpio.h"
+#include "hornet.h"
+#include "uart.h"
+#include "irq.h"
+#include "gpio.h"
 
 /*************************** CONFIGURATION **************************/
-
-#define UART_BASE_ADDR      0x10008010u
-#define UART_RX_ADDR        (UART_BASE_ADDR + UART_RX_ADDR_OFFSET)
 
 #define AES_KEYSIZE         128
 #define AES_BLK             AES_BLOCK_SIZE          /* 16 */
@@ -55,7 +53,7 @@
  * between the AES call and the falling edge). Gives the scope a clean,
  * quiet baseline on both sides of the region of interest and keeps the
  * trigger edge itself out of the window you correlate over.
- * ~1 cycle per nop @ 25 MHz core clock => 32 nops ~ 1.3 us.
+ * ~1 cycle per nop => 32 nops ~ 0.64 us at 50 MHz.
  * Raise these if you see the GPIO edge coupling into CH1.            */
 #define TRIG_PRE_NOPS       32
 #define TRIG_POST_NOPS      32
@@ -74,11 +72,14 @@
 
 /****************************** MACROS ******************************/
 
+/* Trigger pins: PMOD JA pin 1 (gpio[24]) for the scope, LED0 (gpio[0]) to see it */
+#define TRIG_PINS   ((1u << 24) | 1u)
+
 /* Direct register writes rather than gpio_set_trigger(): one store,
  * no call/return, no branch on the argument => constant, minimal and
  * repeatable latency between the edge and the first AES instruction. */
-#define TRIG_HI()   do { *GPIO_REG = 1u; } while (0)
-#define TRIG_LO()   do { *GPIO_REG = 0u; } while (0)
+#define TRIG_HI()   do { GPIO_OUT = TRIG_PINS; } while (0)
+#define TRIG_LO()   do { GPIO_OUT = 0u; } while (0)
 
 /* Compiler barrier: stops -O2 from hoisting any part of the AES work
  * across the trigger stores. */
@@ -91,8 +92,6 @@ static inline void nop_pad(int n)
 }
 
 /***************************** GLOBALS ******************************/
-
-uart uart0;
 
 static WORD key_schedule[60];
 
@@ -190,10 +189,10 @@ static int self_test(void)
 int main(void)
 {
     SET_MTVEC_VECTOR_MODE();
-
-    uart_init(&uart0, (uint32_t *) UART_BASE_ADDR);
+    uart_set_irq(&uart0, UART_RX_IRQ);
 
     TRIG_LO();                       /* trigger known-low out of reset */
+    GPIO_DIR = TRIG_PINS;
 
     rx_reset();
 
@@ -204,7 +203,7 @@ int main(void)
 
     while (1) {
         /* ---- Receive phase: interrupts on ---- */
-        ENABLE_FAST_IRQ(0);
+        ENABLE_FAST_IRQ(FAST_IRQ_UART);
         ENABLE_GLOBAL_IRQ();
 
         while (!frame_ready) {
@@ -215,7 +214,7 @@ int main(void)
          * No ISR can fire during the crypto, so trace-to-trace jitter
          * is limited to the cipher's own data-dependent behaviour.   */
         DISABLE_GLOBAL_IRQ();
-        DISABLE_FAST_IRQ(0);
+        DISABLE_FAST_IRQ(FAST_IRQ_UART);
 
         switch (rx_cmd) {
 
@@ -248,17 +247,9 @@ int main(void)
 
 /*====================== INTERRUPT HANDLERS ========================*/
 
-void mti_handler(void) {}
-void mei_handler(void) {}
-void msi_handler(void) {}
-void exc_handler(void) {}
-void fast_irq1_handler(void) {}
-
-void fast_irq0_handler(void)
+/* Takes one received byte; returns when a frame is complete. */
+static void rx_byte(uint8_t b)
 {
-    volatile uint8_t *rx_ptr = (volatile uint8_t *) UART_RX_ADDR;
-    uint8_t b = *rx_ptr;
-
     if (!rx_have_cmd) {
         rx_cmd      = b;
         rx_count    = 0u;
@@ -282,4 +273,11 @@ void fast_irq0_handler(void)
         frame_ready = 1u;
         DISABLE_GLOBAL_IRQ();
     }
+}
+
+/* The UART interrupt stays pending while its receive FIFO holds data. */
+void fast_irq0_handler(void)
+{
+    while (!frame_ready && uart_rx_available(&uart0))
+        rx_byte(uart_receive_byte(&uart0));
 }

@@ -7,7 +7,7 @@ This repository contains the ongoing work to port and test the Falcon Post-Quant
 The software in this repository is designed to run on **Hornet**, a custom RV32IMF soft core.
 * **Target Processor:** [HORNET-RV32IMF](https://github.com/GSTL-ITU/HORNET-RV32IMF)
 * **Execution Environment:** Bare-metal (No OS)
-* **Compilation:** `riscv32-unknown-elf-gcc` (`-march=rv32imf -mabi=ilp32f`)
+* **Compilation:** `riscv32-unknown-elf-gcc` (`-march=rv32imf_zicsr_zifencei -mabi=ilp32f -O3`, in Hornet's Docker image)
 
 ## Acknowledgements & Source Material
 
@@ -23,14 +23,12 @@ The codebase has been modified to support deterministic testing in a bare-metal 
 ├── gcc-x86/                  # Native PC implementation (used for reference testing and KAT generation)
 └── risc-v/
     └── hornet/
-        ├── drivers/          # Hornet-specific bare-metal drivers (UART, GPIO, IRQ)
-        ├── rom_gen/          # Boot code (crt0.s) and ROM generation utilities
         ├── src/              # Modified Falcon source code configured for RV32 FPU emulation
-        └── sw_keygen_test/   # Dedicated test harness for Falcon Key Generation
+        └── test/             # Hornet harness: KeyGen, Sign, Verify (make check)
 ```
-## Current Status & Simulation
+## Current Status
 
-Initial porting efforts are focused on verifying the mathematical correctness of the FPU emulation on the Hornet core via simulation. 
-
-Currently, the repository includes the `sw_keygen_test`, which successfully validates the `falcon_keygen_make` function. A detailed execution report and cycle analysis from the **Cadence Xcelium** simulation can be found in the test's dedicated documentation: 
-👉 [sw_keygen_test/README.md](risc-v/hornet/sw_keygen_test/README.md)        
+The harness in [`risc-v/hornet/test`](risc-v/hornet/test/README.md) runs key
+generation, signing (dynamic, compressed signatures) and verification on
+Hornet version 2, in Verilator and on the FPGA, and checks every output
+against a native build. Results and how to run it: [test/README.md](risc-v/hornet/test/README.md).

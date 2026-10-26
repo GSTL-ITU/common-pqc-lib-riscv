@@ -1,37 +1,27 @@
+// AES known-answer tests (ECB, CBC, CTR, CCM) on HORNET, plus the cycle count
+// of the AES-128 key schedule and of one block encryption
 #include <stdint.h>
+#include "bench.h"
 #include "../../ref/aes.h"
 
-// Hornet Debug Interface
-#define DEBUG_IF_ADDR 0x10008010
-#define DEBUG_REG     ((volatile char *)DEBUG_IF_ADDR)
+static const BYTE key[16] = { 0x2b, 0x7e, 0x15, 0x16, 0x28, 0xae, 0xd2, 0xa6,
+                              0xab, 0xf7, 0x15, 0x88, 0x09, 0xcf, 0x4f, 0x3c };
+static const BYTE pt[16]  = { 0x6b, 0xc1, 0xbe, 0xe2, 0x2e, 0x40, 0x9f, 0x96,
+                              0xe9, 0x3d, 0x7e, 0x11, 0x73, 0x93, 0x17, 0x2a };
+static WORD schedule[60];
+static BYTE ct[16];
 
 int main(void)
 {
-	int ecb_pass, cbc_pass, ctr_pass, ccm_pass, all_pass;
-
-	*DEBUG_REG = 'S'; // 'S' for Start
-
-	// Run each mode separately and report as we go, so a hang/crash in
-	// one mode still tells you which one via the last byte written.
-	ecb_pass = aes_ecb_test();
-	*DEBUG_REG = ecb_pass ? '1' : 'a'; // '1'=ECB pass, 'a'=ECB fail
-
-	cbc_pass = aes_cbc_test();
-	*DEBUG_REG = cbc_pass ? '2' : 'b'; // '2'=CBC pass, 'b'=CBC fail
-
-	ctr_pass = aes_ctr_test();
-	*DEBUG_REG = ctr_pass ? '3' : 'c'; // '3'=CTR pass, 'c'=CTR fail
-
-	ccm_pass = aes_ccm_test();
-	*DEBUG_REG = ccm_pass ? '4' : 'd'; // '4'=CCM pass, 'd'=CCM fail
-
-	all_pass = ecb_pass && cbc_pass && ctr_pass && ccm_pass;
-
-	*DEBUG_REG = all_pass ? 'P' : 'F'; // 'P' for Pass, 'F' for Fail
-
-	while (1) {
-		__asm__ volatile ("nop");
-	}
-
-	return 0;
+    bench_start("AES");
+    bench_check(aes_ecb_test(), "ECB", 0);
+    bench_check(aes_cbc_test(), "CBC", 0);
+    bench_check(aes_ctr_test(), "CTR", 0);
+    bench_check(aes_ccm_test(), "CCM", 0);
+    for (int run = 0; run < RUNS; run++) {
+        BENCH("keysetup128", run, aes_key_setup(key, schedule, 128));
+        BENCH("encrypt128", run, aes_encrypt(pt, ct, schedule, 128));
+        bench_digest("ct", run, ct, sizeof ct);
+    }
+    return bench_end();
 }
