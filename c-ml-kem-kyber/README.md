@@ -33,7 +33,7 @@ The codebase has been heavily modified to support deterministic testing in a bar
 
 ## Running on Hornet
 
-The harness runs on Hornet version 2 (HORNET's startup code, drivers and
+The harness runs on Hornet (HORNET's startup code, drivers and
 linker script, `-O3`); printf goes to the UART. Requirements and the FPGA flow
 are in the [top-level README](../README.md#running-on-hornet).
 
@@ -46,7 +46,7 @@ make check      # Verilator + native build; CHECK PASS when all digests match
 and shared secret (and of the shared secret after a changed ciphertext) with a
 native build of the same harness.
 
-### Execution Report (Kyber768, -O3, Hornet v2 on the Nexys Video)
+### Execution Report (Kyber768, -O3, Hornet on the Nexys Video)
 
 Cycles from the 64-bit `mcycle` around each call; the Verilator simulation
 gives the same numbers.
@@ -56,10 +56,6 @@ gives the same numbers.
 | **KeyGen** | 1,451,663 | 1,452,442 | 1,451,667 – 1,492,294 | 29.0 ms |
 | **Encaps** | 1,645,824 | 1,646,604 | 1,645,829 – 1,686,456 | 32.9 ms |
 | **Decaps** | 1,903,942 | 1,904,723 | 1,903,948 – 1,944,575 | 38.1 ms |
-
-The previous report (17,422,858 cycles for the whole harness) was measured on
-Hornet version 1 from simulation timestamps and included three key exchanges,
-the RNG and the checks; it is replaced by the per-operation numbers above.
 
 ## Profiling
 

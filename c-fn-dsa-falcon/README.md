@@ -30,5 +30,5 @@ The codebase has been modified to support deterministic testing in a bare-metal 
 
 The harness in [`risc-v/hornet/test`](risc-v/hornet/test/README.md) runs key
 generation, signing (dynamic, compressed signatures) and verification on
-Hornet version 2, in Verilator and on the FPGA, and checks every output
+Hornet, in Verilator and on the FPGA, and checks every output
 against a native build. Results and how to run it: [test/README.md](risc-v/hornet/test/README.md).

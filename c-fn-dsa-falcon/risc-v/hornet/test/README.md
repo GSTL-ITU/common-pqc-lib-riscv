@@ -1,6 +1,6 @@
 # Falcon on Hornet (`test`)
 
-Bare-metal harness for Falcon-512 on the Hornet RV32IMF core (version 2):
+Bare-metal harness for Falcon-512 on the Hornet RV32IMF core:
 `falcon_keygen_make`, `falcon_sign_dyn` (compressed signature of a 32-byte
 message) and `falcon_verify`, each timed with the 64-bit `mcycle` counter.
 The harness also checks that a changed message is rejected and prints digests
@@ -42,7 +42,7 @@ int Zf(get_seed)(void *seed, size_t len) {
 }
 ```
 
-## Results (Falcon-512, -O3, Hornet v2 on the Nexys Video)
+## Results (Falcon-512, -O3, Hornet on the Nexys Video)
 
 Cycles from `mcycle` around each call; the Verilator simulation gives the same
 numbers.
@@ -56,6 +56,3 @@ numbers.
 Key generation restarts when the sampled polynomials are unsuitable, so its
 time varies by a factor of about 4 between seeds; signing and verification
 vary little.
-
-The earlier report (key generation only, 164,091,200 cycles from Xcelium
-timestamps on Hornet version 1 at -O2) is replaced by these numbers.

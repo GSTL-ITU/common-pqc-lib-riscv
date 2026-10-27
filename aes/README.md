@@ -8,13 +8,13 @@ AES is not a post-quantum algorithm. It is kept in this repository as the **refe
 
 ## 🟢 Current Status
 
-* **`test-aes`:** all four modes pass on Hornet version 2, in RTL simulation and on the Nexys Video; the ciphertext digest matches a native build.
-* **`aes-fpga`:** ported to Hornet version 2 (UART protocol checked in simulation). On Hornet version 1 (Nexys 4 DDR) the full 128-bit key was recovered with a first-order CEMA attack (16/16 bytes); the trigger moved to Pmod JA pin 1 in version 2, so the acquisition setup must be rewired before repeating it.
+* **`test-aes`:** all four modes pass on Hornet, in RTL simulation and on the Nexys Video; the ciphertext digest matches a native build.
+* **`aes-fpga`:** builds with the current Hornet flow (UART protocol checked in simulation). With the earlier firmware on the Nexys 4 DDR the full 128-bit key was recovered with a first-order CEMA attack (16/16 bytes); the trigger is now on Pmod JA pin 1, so the acquisition setup must be rewired before repeating it.
 
 ## Architecture & Hardware Context
 
 * **Target Processor:** [HORNET-RV32IMF](https://github.com/GSTL-ITU/HORNET-RV32IMF)
-* **Board:** Nexys 4 DDR or Nexys Video (Artix-7), core clock 50 MHz (Hornet version 2)
+* **Board:** Nexys 4 DDR or Nexys Video (Artix-7), core clock 50 MHz
 * **Execution Environment:** Bare-metal (No OS)
 * **Compilation:** `riscv32-unknown-elf-gcc` (`-march=rv32imf_zicsr_zifencei -mabi=ilp32f`; `-O3` for the KAT, `-O2` for the SCA target), in Hornet's Docker image
 
@@ -52,7 +52,7 @@ aes/
 
 ## Building
 
-Both programs build with the Hornet version 2 flow (`../../hornet/hornet.mk`,
+Both programs build with the Hornet flow (`../../hornet/hornet.mk`,
 which includes Hornet's `sw/common.mk`: startup code, drivers, linker script,
 memory images). Requirements are in the [top-level README](../README.md#running-on-hornet).
 
@@ -110,7 +110,7 @@ Every design choice keeps the measured window clean and repeatable:
 
 | Signal | Address / pin |
 |---|---|
-| UART | `0x2001_0000` (Hornet v2 UART0, RX interrupt = fast interrupt 0) |
+| UART | `0x2001_0000` (Hornet UART0, RX interrupt = fast interrupt 0) |
 | GPIO trigger | `GPIO_OUT` bits 24 and 0 (`0x2002_0000`) → Pmod JA pin 1 and LED0 |
 | Oscilloscope | JA pin 1 → AUX In, EM probe → CH4 |
 

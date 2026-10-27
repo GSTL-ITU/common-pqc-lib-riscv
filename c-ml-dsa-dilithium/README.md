@@ -4,7 +4,7 @@ This repo contains [CRYSTALS-Dilithium](https://github.com/pq-crystals/dilithium
 
 ## Building & Testing
 
-The Hornet harness runs on Hornet version 2 (HORNET's startup code, drivers
+The Hornet harness runs on Hornet (HORNET's startup code, drivers
 and linker script, `-O3`, output on the UART). Requirements and the FPGA flow
 are in the [top-level README](../README.md#running-on-hornet).
 
@@ -18,7 +18,7 @@ The harness (`hornet_dilithium.c`) signs a 59-byte message with a 14-byte
 context, verifies it, checks that a changed signature byte is rejected, and
 prints the digests of the public key, secret key and signed message.
 
-### Execution Report (Dilithium2, -O3, Hornet v2 on the Nexys Video)
+### Execution Report (Dilithium2, -O3, Hornet on the Nexys Video)
 
 Cycles from the 64-bit `mcycle` around each call; the Verilator simulation
 gives the same numbers.
@@ -35,9 +35,7 @@ gives the same numbers.
 
 Signing repeats until a candidate signature passes the rejection checks, so
 its time depends on the randomness: seed 0 needs many more attempts than
-usual. The previous report (Hornet version 1, cycles from simulation
-timestamps divided by an assumed 100 MHz clock while the testbench ran at
-40 MHz) is replaced by the numbers above.
+usual.
 
 ## Profiling
 

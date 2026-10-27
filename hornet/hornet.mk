@@ -1,5 +1,5 @@
 # Build rules for the PQC harnesses on the HORNET RV32IMF SoC
-# (https://github.com/GSTL-ITU/HORNET-RV32IMF, version 2). A harness Makefile:
+# (https://github.com/GSTL-ITU/HORNET-RV32IMF). A harness Makefile:
 #
 #     PROG = dilithium2
 #     SRCS = hornet_dilithium.c ../sign.c ...

@@ -4,8 +4,8 @@ This repository contains vendor-independent, bare-metal C ports of NIST Post-Qua
 
 ## 🟢 Current Status: Software Ready
 
-All modules run on HORNET version 2, in RTL simulation and on the FPGA, with
-outputs identical to a native build (see [Running on HORNET](#running-on-hornet)).
+ML-KEM, ML-DSA, FN-DSA and AES run on HORNET, in RTL simulation and on the FPGA,
+with outputs identical to a native build (see [Running on HORNET](#running-on-hornet)).
 
 ## Supported Algorithms
 
@@ -26,7 +26,7 @@ harness also builds natively; the digests of both must be identical, so a run
 on HORNET is checked against a known answer, not only against itself.
 
 Requirements: a checkout of [HORNET-RV32IMF](https://github.com/GSTL-ITU/HORNET-RV32IMF)
-(version 2) next to this repository (or `HORNET_ROOT=<path>`) and its
+next to this repository (or `HORNET_ROOT=<path>`) and its
 `hornet-dev` Docker image (`make docker-build` there). The build rules are in
 [`hornet/hornet.mk`](hornet/hornet.mk) (`-O3`, `rv32imf_zicsr`/`ilp32f`, HORNET's
 startup code, drivers and linker script).
@@ -44,7 +44,6 @@ make RUNS=100 ...   # 100 operations with fresh randomness each (median, spread)
 | ML-KEM-768 | `c-ml-kem-kyber/riscv-hornet/test` (`KYBER_K=2/3/4`) |
 | ML-DSA-44 | `c-ml-dsa-dilithium/risc-v/hornet/test` (`DILITHIUM_MODE=2/3/5`) |
 | FN-DSA-512 | `c-fn-dsa-falcon/risc-v/hornet/test` (`LOGN=9/10`) |
-| SLH-DSA-SHAKE-128s | `c-slh-dsa-sphincs/risc-v/hornet/sphincs-shake256-128s-simple` |
 | AES-128 KAT, AES SCA target | `aes/hornet/test-aes`, `aes/hornet/aes-fpga` |
 
 **On the FPGA.** Build a HORNET bitstream with the UART bootloader and memories
@@ -62,12 +61,13 @@ make IMEM_SIZE=0x40000 DMEM_SIZE=0x40000 OUT=build-fpga
 python3 ../../../../hornet/summarize.py build-fpga/board.log --host build-fpga/host.log
 ```
 
-### Results (HORNET v2, -O3, Nexys Video at 50 MHz)
+### Results (HORNET, -O3, Nexys Video at 50 MHz)
 
 Cycles from `mcycle` around each call. Seed 0 is the fixed seed of the
 deterministic RNGs (the same as in the CVA6 runs); the board and the Verilator
 simulation give identical counts. The 100-seed columns come from one board run
-with `RUNS=100` (SLH-DSA: 3, its runtime does not depend on the seed); every output of every run matched the native build.
+with `RUNS=100`; every output of every run matched the native build. SLH-DSA
+(SPHINCS+) is not part of the HORNET benchmarks.
 
 | Scheme | Operation | Cycles (seed 0) | Median | Min – max | Time @ 50 MHz (seed 0) | Seeds |
 | :--- | :--- | ---: | ---: | ---: | ---: | ---: |
@@ -80,9 +80,6 @@ with `RUNS=100` (SLH-DSA: 3, its runtime does not depend on the seed); every out
 | FN-DSA-512 | KeyGen | 144,688,596 | 215,774,632 | 139,201,315 – 643,047,715 | 2,893.8 ms | 100 |
 |  | Sign | 63,600,336 | 63,625,218 | 63,396,940 – 63,858,191 | 1,272.0 ms | 100 |
 |  | Verify | 547,378 | 546,961 | 529,543 – 547,974 | 10.9 ms | 100 |
-| SLH-DSA-SHAKE-128s | KeyGen | 6,760,272,813 | 6,760,272,817 | 6,760,272,817 – 6,760,272,817 | 135,205.5 ms | 3 |
-|  | Sign | 51,405,057,698 | 51,404,006,225 | 51,402,253,793 – 51,405,057,705 | 1,028,101.2 ms | 3 |
-|  | Verify | 48,422,334 | 49,473,743 | 48,422,341 – 51,226,057 | 968.4 ms | 3 |
 
 ### Compared with CVA6
 
@@ -104,9 +101,6 @@ seeds (FN-DSA: the first 25).
 | FN-DSA-512 | KeyGen | 166,486,014 | 144,688,596 | 0.87 | 292,037,681 (25) | 212,795,676 | 0.73 |
 |  | Sign | 69,828,009 | 63,600,336 | 0.91 | 69,790,061 (25) | 63,600,342 | 0.91 |
 |  | Verify | 887,572 | 547,378 | 0.62 | 886,922 (25) | 547,100 | 0.62 |
-| SLH-DSA-SHAKE-128s | KeyGen | 16,813,876,091 | 6,760,272,813 | 0.40 | not measured | 6,760,272,817 (3 seeds) | — |
-|  | Sign | not measured (run > 60 min) | 51,405,057,698 | — | not measured | 51,404,006,225 (3 seeds) | — |
-|  | Verify | not measured (run > 60 min) | 48,422,334 | — | not measured | 49,473,743 (3 seeds) | — |
 
 Both cores retire almost the same number of instructions; the difference is
 the cycles per instruction (about 1.1 on Hornet, 1.2-2.3 on CVA6), mostly from
