@@ -24,9 +24,9 @@ gives the same numbers.
 
 | Operation | Cycles (seed 0) | Median of 3 seeds | Min – max | Time @ 50 MHz |
 | :--- | ---: | ---: | ---: | ---: |
-| **KeyGen** | 6,760,272,813 | overnight run |  | 135,205.5 ms |
-| **Sign** | overnight run | overnight run |  |  |
-| **Verify** | overnight run | overnight run |  |  |
+| **KeyGen** | 6,760,272,813 | 6,760,272,817 | 6,760,272,817 – 6,760,272,817 | 135,205.5 ms |
+| **Sign** | 51,405,057,698 | 51,404,006,225 | 51,402,253,793 – 51,405,057,705 | 1,028,101.2 ms |
+| **Verify** | 48,422,334 | 49,473,743 | 48,422,341 – 51,226,057 | 968.4 ms |
 
 **Public Key Size:** 32 bytes \
 **Secret Key Size:** 64 bytes \

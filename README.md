@@ -80,9 +80,9 @@ with `RUNS=100` (SLH-DSA: 3, its runtime does not depend on the seed); every out
 | FN-DSA-512 | KeyGen | 144,688,596 | 215,774,632 | 139,201,315 – 643,047,715 | 2,893.8 ms | 100 |
 |  | Sign | 63,600,336 | 63,625,218 | 63,396,940 – 63,858,191 | 1,272.0 ms | 100 |
 |  | Verify | 547,378 | 546,961 | 529,543 – 547,974 | 10.9 ms | 100 |
-| SLH-DSA-SHAKE-128s | KeyGen | 6,760,272,813 | overnight run |  | 135,205.5 ms |  |
-|  | Sign | overnight run | overnight run |  |  |  |
-|  | Verify | overnight run | overnight run |  |  |  |
+| SLH-DSA-SHAKE-128s | KeyGen | 6,760,272,813 | 6,760,272,817 | 6,760,272,817 – 6,760,272,817 | 135,205.5 ms | 3 |
+|  | Sign | 51,405,057,698 | 51,404,006,225 | 51,402,253,793 – 51,405,057,705 | 1,028,101.2 ms | 3 |
+|  | Verify | 48,422,334 | 49,473,743 | 48,422,341 – 51,226,057 | 968.4 ms | 3 |
 
 ### Compared with CVA6
 
@@ -104,9 +104,9 @@ seeds (FN-DSA: the first 25).
 | FN-DSA-512 | KeyGen | 166,486,014 | 144,688,596 | 0.87 | 292,037,681 (25) | 212,795,676 | 0.73 |
 |  | Sign | 69,828,009 | 63,600,336 | 0.91 | 69,790,061 (25) | 63,600,342 | 0.91 |
 |  | Verify | 887,572 | 547,378 | 0.62 | 886,922 (25) | 547,100 | 0.62 |
-| SLH-DSA-SHAKE-128s | KeyGen | overnight run | | | | | |
-|  | Sign | overnight run | | | | | |
-|  | Verify | overnight run | | | | | |
+| SLH-DSA-SHAKE-128s | KeyGen | 16,813,876,091 | 6,760,272,813 | 0.40 | not measured | 6,760,272,817 (3 seeds) | — |
+|  | Sign | not measured (run > 60 min) | 51,405,057,698 | — | not measured | 51,404,006,225 (3 seeds) | — |
+|  | Verify | not measured (run > 60 min) | 48,422,334 | — | not measured | 49,473,743 (3 seeds) | — |
 
 Both cores retire almost the same number of instructions; the difference is
 the cycles per instruction (about 1.1 on Hornet, 1.2-2.3 on CVA6), mostly from
